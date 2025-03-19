@@ -1,0 +1,113 @@
+.container {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+
+  .title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100%;
+    color: rgba(40, 41, 91, 1);
+  }
+
+  .error-text {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 276px;
+    line-height: 136%;
+    color: rgba(162, 111, 222, 1);
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(52.52deg, #FB72A5 4.34%, #FF7A7B 94.21%);
+    padding: 15px 30px;
+    border-radius: 200px;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    color: rgba(255, 255, 255, 1);
+
+    .button-span {
+      color: rgba(233, 216, 255, 1);
+    }
+  }
+
+  .bg-image {
+    width: 330px;
+    height: 330px;
+    background-image: url(../../../../public/images/error_page.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 60px;
+    top: 125px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .container {
+    padding-top: 25px;
+    gap: 15px;
+
+    .title {
+      font-size: 25px;
+    }
+
+    .error-text {
+      font-size: 176px;
+    }
+
+    .button {
+      font-size: 15px;
+      padding: 10px 20px;
+    }
+
+    .bg-image {
+      width: 211px;
+      height: 211px;
+      top: 81px;
+      left: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 25px 20px;
+    gap: unset;
+
+    .title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .error-text {
+      font-size: 96px;
+      margin-bottom: 1px;
+    }
+
+    .bg-image {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      top: unset;
+      left: unset;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      font-size: 15px;
+      padding: 10px 20px;
+    }
+  }
+}

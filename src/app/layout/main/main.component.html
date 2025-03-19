@@ -1,0 +1,281 @@
+<header class="header">
+  <article class="container">
+    <section class="border-block">
+      <img src="images/logo.png" class="logo" alt="Logo">
+      <article class="header-action">
+        <button class="lang">
+          <span style="text-decoration: underline">ru</span>
+          <span>
+          <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 0.5L6.17982 5.32018C6.08051 5.41949 5.91949 5.41949 5.82018 5.32018L1 0.5" stroke="#28295B"
+                  stroke-width="0.833333" stroke-linecap="round"/>
+          </svg>
+        </span>
+        </button>
+        <button class="btn action-btn">
+          Создать
+        </button>
+      </article>
+    </section>
+  </article>
+</header>
+
+<section class="first-screen">
+  <div class="bg"></div>
+  <article class="container">
+    <section class="title-block">
+      <h1 class="title main-title">
+        <span class="title-color">Умный</span> голосовой бот,
+      </h1>
+      <p class="subtitle">
+        который работает вместо оператора <br>
+        и не просит зарплату
+      </p>
+    </section>
+    <section class="info-block">
+      <article class="info-block-item">
+        <img src="images/play.png" alt="Play" class="info-item-image" loading="lazy">
+        <p class="info-item-text">Информирует и напомнит <br>о мероприятиях</p>
+      </article>
+      <article class="info-block-item">
+        <img src="images/play.png" alt="Play" class="info-item-image" loading="lazy">
+        <p class="info-item-text">Проконсультирует <br>на входящем звонке</p>
+      </article>
+      <article class="info-block-item">
+        <img src="images/play.png" alt="Play" class="info-item-image" loading="lazy">
+        <p class="info-item-text">Обзвонит базу <br>потенциальных клиентов</p>
+      </article>
+    </section>
+    <section class="action-block">
+      <article class="action-items">
+        <section class="action-item">
+          <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
+          <input type="text" class="btn action-input" prefix="+7 "
+                 placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">
+        </section>
+        <section class="action-item">
+          <button class="btn action-btn">Протестировать бота</button>
+        </section>
+      </article>
+      <p class="action-block-text">Нажимая на кнопку «Протестировать бота», вы соглашаетесь с <a
+        href="javascript:void(0)">политикой обработки
+        персональных данных</a></p>
+    </section>
+    <div class="first-screen-image">
+      <img ngSrc="images/speak.png" fill priority class="first-screen-image" alt="">
+    </div>
+
+  </article>
+</section>
+
+<section class="advantages">
+  <article class="container">
+    <h2 class="title advantages-title">
+      Я <span class="lilac">сэкономлю</span> ваши средства, <br>
+      <span class="grad2-text">помогу</span> не потерять лидов, <br>
+      <span class="lilac">займусь</span> рутинным обзвоном <br>
+      и <span class="grad2-text">повышу</span> лояльность ваших клиентов
+    </h2>
+    <section class="advantage-items">
+      <article class="advantage-item" *ngFor="let advantage of advantages">
+        <section class="advantage-icon">
+          <img ngSrc="images/icons/{{advantage.image}}" fill alt="Icon" class="advantage-icon-image">
+        </section>
+        <p class="advantage-text" [innerHtml]="advantage.description"></p>
+      </article>
+    </section>
+  </article>
+</section>
+
+<section class="tasks">
+  <article class="container">
+    <h2 class="title tasks-title">Какие задачи можно поручить боту?</h2>
+    <section class="task-block">
+      <article class="task-items">
+        <section class="task-item">
+          <p class="task-item-number">01</p>
+          <p class="task-item-text">
+            <span class="lilac">Отвечать</span> на
+            входящие звонки <br>и принимать заказы
+          </p>
+        </section>
+        <section class="task-item">
+          <p class="task-item-number">03</p>
+          <p class="task-item-text">
+            <span class="lilac">Подтверждать/отклонять</span> заказы, <br>
+            <span class="lilac">напоминать</span> о незавершенной покупке
+          </p>
+        </section>
+        <section class="task-item">
+          <p class="task-item-number">02</p>
+          <p class="task-item-text">
+            <span class="lilac">Прозванивать</span> клиентов <br>
+            по холодной базе с отработкой <br>
+            базовых возражений
+          </p>
+        </section>
+        <section class="task-item">
+          <p class="task-item-number">04</p>
+          <p class="task-item-text">
+            <span class="lilac">Проводить</span> опросы, <span class="lilac">информировать</span> <br>
+            о предстоящих событиях
+          </p>
+        </section>
+      </article>
+      <article class="task-block-image">
+        <img ngSrc="images/chat_bot.png" fill alt="ChatBot">
+      </article>
+    </section>
+  </article>
+</section>
+
+<section class="differents">
+  <article class="container">
+    <section class="title-block">
+      <h2 class="title differents-title">Умный голосовой бот</h2>
+      <h2 class="title differents-title">Робот IVR</h2>
+    </section>
+    <section class="different-items">
+      <article class="different-item">
+        <p class="different-name">Интеллект</p>
+        <section class="different-text-block first-item">
+          <p class="different-left">Понимает естественный язык и мгновенно выдает нужный ответ, поддерживая плавный
+            диалог</p>
+          <p class="different-right">Основан на заранее запрограммированных <br>сценариях, не
+            понимает сложные запросы</p>
+        </section>
+      </article>
+      <article class="different-item">
+        <p class="different-name">Гибкость</p>
+        <section class="different-text-block">
+          <p class="different-left">Может адаптироваться к разным диалогам, обучается на
+            данных</p>
+          <p class="different-right">Функционирует по фиксированному меню, не обучается</p>
+        </section>
+      </article>
+      <article class="different-item">
+        <p class="different-name">Способ общения</p>
+        <section class="different-text-block">
+          <p class="different-left">Разговаривает естественно, распознает смысл фраз</p>
+          <p class="different-right">Работает по кнопочным или голосовым командам (например, «нажмите 1»)</p>
+        </section>
+      </article>
+      <article class="different-item">
+        <p class="different-name">Скорость взаимодействия</p>
+        <section class="different-text-block">
+          <p class="different-left">Может понимать речь в реальном времени <br>
+            и реагировать быстро</p>
+          <p class="different-right">Часто требует выбора вариантов и пауз между ответами</p>
+        </section>
+      </article>
+      <article class="different-item">
+        <p class="different-name">Применение</p>
+        <section class="different-text-block">
+          <p class="different-left">Помогает в сложных сервисных задачах: <br>
+            консультации, поддержка, продажи</p>
+          <p class="different-right">Используется для простых автоответов <br>
+            и маршрутизации
+            звонков</p>
+        </section>
+      </article>
+      <article class="different-item">
+        <p class="different-name">Интеграция с сервисами</p>
+        <section class="different-text-block last-item">
+          <p class="different-left">Легко подключается к CRM, чатам, базам данных</p>
+          <p class="different-right">Обычно ограничивается телефонией <br>
+            и стандартными сценариями</p>
+        </section>
+      </article>
+    </section>
+    <section class="bot-description">
+      Голосовой бот-помощник — это интеллектуальная система, которая максимально приближена к живому общению, <br>
+      тогда как робот IVR — это механический автоответчик с базовой функциональностью
+    </section>
+  </article>
+</section>
+
+<section class="test-order">
+  <article class="container">
+      <h2 class="title test-order-title">Убедитесь в эффективности
+        нашего голосового бота</h2>
+      <section class="test-order-subtitle-block">
+        <p class="subtitle test-order-subtitle">
+          Нажмите кнопку ниже, чтобы запросить обратный звонок.
+        </p>
+        <p class="subtitle test-order-subtitle">
+          Наш ИИ специалист перезвонит вам в течение 20 секунд и ответит на все ваши вопросы
+        </p>
+      </section>
+      <section class="action-block">
+        <article class="action-items">
+          <section class="action-item">
+            <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
+            <input type="text" class="btn action-input" prefix="+7 "
+                   placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">
+          </section>
+          <section class="action-item">
+            <button class="btn action-btn">Протестировать бота</button>
+          </section>
+        </article>
+        <p class="action-block-text">Нажимая на кнопку «Протестировать бота», вы соглашаетесь с <a
+          href="javascript:void(0)">политикой обработки
+          персональных данных</a></p>
+      </section>
+
+      <div class="screen-image">
+        <img ngSrc="images/bot_phone.png" fill priority class="screen-image" alt="">
+      </div>
+  </article>
+</section>
+
+<section class="category">
+  <article class="container">
+    <h2 class="title category-title">
+      Моя помощь требуется в любой сфере бизнеса,
+      где нужно общаться с клиентами по телефону
+    </h2>
+    <section class="categories-items">
+      <article class="categories-btn">
+        <button #categoryBtn class="category-btn"
+                *ngFor="let botItem of botItems; let i = index" [class.active]="i === activeIndex"
+                (click)="selectCategory(i)">
+          {{botItem.category}}
+        </button>
+      </article>
+
+      <article class="categories-carousel">
+        <owl-carousel-o #owlCarCard
+                        [options]="customOptions" class="slider-container" (translated)="onSlideTranslated($event)">
+          <ng-template carouselSlide *ngFor="let botItem of botItems; let i = index" [id]="'slide-' + i" >
+            <section class="category-card">
+              <h3 class="category-card-title">{{botItem.category}}</h3>
+              <p class="category-card-name">{{botItem.name}}</p>
+              <article class="category-card-image">
+                <img src="{{botItem.imageSrc}}" alt="">
+              </article>
+
+              <article class="category-card-player-block">
+                <p class="category-card-task" [innerHtml]="botItem.taskCompleted"></p>
+                <app-audio-player [trackSrc]="botItem.trackSrc" [playerId]="i.toString()"></app-audio-player>
+              </article>
+            </section>
+          </ng-template>
+        </owl-carousel-o>
+
+        <article class="slide-actions">
+          <button class="slide-action-btn" (click)="owlCarCard!.prev()">
+            <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 0.5L1.44783 10.0522C1.2005 10.2995 1.2005 10.7005 1.44783 10.9478L11 20.5" stroke="#28295B" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button class="slide-action-btn" (click)="owlCarCard!.next()">
+            <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 0.5L10.5522 10.0522C10.7995 10.2995 10.7995 10.7005 10.5522 10.9478L1 20.5" stroke="#28295B" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </article>
+      </article>
+
+    </section>
+  </article>
+</section>

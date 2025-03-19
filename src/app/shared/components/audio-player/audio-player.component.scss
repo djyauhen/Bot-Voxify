@@ -1,0 +1,165 @@
+@import "../../../../../styles/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.audio-player {
+  display: flex;
+  padding: 10px;
+  background: rgba(233, 216, 255, 1);
+  border-radius: 18px;
+  max-width: 330px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .play-btn {
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      height: 15px;
+    }
+  }
+
+  .progressbar {
+    width: 245px;
+
+    .progress-input {
+      -webkit-appearance: none; /* Убираем стандартный стиль для Webkit-браузеров */
+      appearance: none; /* Убираем стандартный стиль для других браузеров */
+      width: 100%; /* Ширина на всю доступную область */
+      height: 3px; /* Толщина трека 3px */
+      background: white; /* Цвет фона трека - белый */
+      outline: none; /* Убираем обводку при фокусе */
+      cursor: pointer;
+
+      /* Стилизация прогресса (до ползунка) */
+      &::-webkit-slider-runnable-track {
+        height: 3px;
+        background: linear-gradient(to right,
+          rgba(162, 111, 222, 1) 0%,
+          rgba(162, 111, 222, 1) calc((var(--value) / var(--max)) * 100%),
+          white calc((var(--value) / var(--max)) * 100%),
+          white 100%
+        );
+      }
+
+      &::-moz-range-track {
+        height: 3px;
+        background: white;
+      }
+
+      &::-moz-range-progress {
+        height: 3px;
+        background: rgba(162, 111, 222, 1); /* Цвет прогресса для Firefox */
+      }
+
+      /* Убираем круглый ползунок (thumb) */
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 0;
+        height: 0;
+        background: transparent;
+      }
+
+      &::-moz-range-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border: none;
+      }
+
+      &::-ms-thumb {
+        width: 0;
+        height: 0;
+        background: transparent;
+      }
+
+      /* Поддержка для IE */
+      &::-ms-track {
+        height: 3px;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+
+      &::-ms-fill-lower {
+        background: rgba(162, 111, 222, 1); /* Цвет прогресса для IE */
+      }
+
+      &::-ms-fill-upper {
+        background: white; /* Цвет фона после прогресса */
+      }
+    }
+
+    .progressbar-time {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 8px;
+    }
+  }
+
+  .volume-control {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+
+  .audio-player {
+    padding: 5px;
+    border-radius: 12px;
+
+    .play-btn {
+      width: 20px;
+      height: 20px;
+
+      svg {
+        height: 10px;
+      }
+    }
+
+    .progressbar {
+      width: 164px;
+
+      .progress-input {
+        top: -1.5px;
+        position: relative;
+      }
+
+      .progress-input, .progress-input::-moz-range-track, .progress-input::-webkit-slider-runnable-track, .progress-input::-moz-range-progress, .progress-input::-ms-track {
+        height: 2px;
+      }
+
+      .progressbar-time {
+        font-size: 5px;
+      }
+    }
+
+    .volume-control {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
