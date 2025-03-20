@@ -62,7 +62,7 @@
         персональных данных</a></p>
     </section>
     <div class="first-screen-image">
-      <img ngSrc="images/speak.png" fill priority class="first-screen-image" alt="" loading="lazy">
+      <img ngSrc="images/speak.png" fill priority class="first-screen-image" alt="">
     </div>
 
   </article>
@@ -79,7 +79,7 @@
     <section class="advantage-items">
       <article class="advantage-item" *ngFor="let advantage of advantages">
         <section class="advantage-icon">
-          <img ngSrc="images/icons/{{advantage.image}}" fill alt="Icon" class="advantage-icon-image"  loading="lazy">
+          <img ngSrc="images/icons/{{advantage.image}}" fill alt="Icon" class="advantage-icon-image">
         </section>
         <p class="advantage-text" [innerHtml]="advantage.description"></p>
       </article>
@@ -123,7 +123,7 @@
         </section>
       </article>
       <article class="task-block-image">
-        <img ngSrc="images/chat_bot.png" fill alt="ChatBot" loading="lazy">
+        <img ngSrc="images/chat_bot.png" fill alt="ChatBot">
       </article>
     </section>
   </article>
@@ -223,7 +223,7 @@
     </section>
 
     <div class="screen-image">
-      <img ngSrc="images/bot_phone.png" fill priority class="screen-image" alt="" loading="lazy">
+      <img ngSrc="images/bot_phone.png" fill priority class="screen-image" alt="">
     </div>
   </article>
 </section>
@@ -251,7 +251,7 @@
               <h3 class="category-card-title">{{ botItem.category }}</h3>
               <p class="category-card-name">{{ botItem.name }}</p>
               <article class="category-card-image">
-                <img src="{{botItem.imageSrc}}" alt=""  loading="lazy">
+                <img src="{{botItem.imageSrc}}" alt="" loading="lazy">
               </article>
 
               <article class="category-card-player-block">
