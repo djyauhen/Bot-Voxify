@@ -196,35 +196,35 @@
 
 <section class="test-order">
   <article class="container">
-      <h2 class="title test-order-title">Убедитесь в эффективности
-        нашего голосового бота</h2>
-      <section class="test-order-subtitle-block">
-        <p class="subtitle test-order-subtitle">
-          Нажмите кнопку ниже, чтобы запросить обратный звонок.
-        </p>
-        <p class="subtitle test-order-subtitle">
-          Наш ИИ специалист перезвонит вам в течение 20 секунд и ответит на все ваши вопросы
-        </p>
-      </section>
-      <section class="action-block">
-        <article class="action-items">
-          <section class="action-item">
-            <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
-            <input type="text" class="btn action-input" prefix="+7 "
-                   placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">
-          </section>
-          <section class="action-item">
-            <button class="btn action-btn">Протестировать бота</button>
-          </section>
-        </article>
-        <p class="action-block-text">Нажимая на кнопку «Протестировать бота», вы соглашаетесь с <a
-          href="javascript:void(0)">политикой обработки
-          персональных данных</a></p>
-      </section>
+    <h2 class="title test-order-title">Убедитесь в эффективности
+      нашего голосового бота</h2>
+    <section class="test-order-subtitle-block">
+      <p class="subtitle test-order-subtitle">
+        Нажмите кнопку ниже, чтобы запросить обратный звонок.
+      </p>
+      <p class="subtitle test-order-subtitle">
+        Наш ИИ специалист перезвонит вам в течение 20 секунд и ответит на все ваши вопросы
+      </p>
+    </section>
+    <section class="action-block">
+      <article class="action-items">
+        <section class="action-item">
+          <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
+          <input type="text" class="btn action-input" prefix="+7 "
+                 placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">
+        </section>
+        <section class="action-item">
+          <button class="btn action-btn">Протестировать бота</button>
+        </section>
+      </article>
+      <p class="action-block-text">Нажимая на кнопку «Протестировать бота», вы соглашаетесь с <a
+        href="javascript:void(0)">политикой обработки
+        персональных данных</a></p>
+    </section>
 
-      <div class="screen-image">
-        <img ngSrc="images/bot_phone.png" fill priority class="screen-image" alt="">
-      </div>
+    <div class="screen-image">
+      <img ngSrc="images/bot_phone.png" fill priority class="screen-image" alt="">
+    </div>
   </article>
 </section>
 
@@ -239,17 +239,17 @@
         <button #categoryBtn class="category-btn"
                 *ngFor="let botItem of botItems; let i = index" [class.active]="i === activeIndex"
                 (click)="selectCategory(i)">
-          {{botItem.category}}
+          {{ botItem.category }}
         </button>
       </article>
 
       <article class="categories-carousel">
         <owl-carousel-o #owlCarCard
                         [options]="customOptions" class="slider-container" (translated)="onSlideTranslated($event)">
-          <ng-template carouselSlide *ngFor="let botItem of botItems; let i = index" [id]="'slide-' + i" >
+          <ng-template carouselSlide *ngFor="let botItem of botItems; let i = index" [id]="'slide-' + i">
             <section class="category-card">
-              <h3 class="category-card-title">{{botItem.category}}</h3>
-              <p class="category-card-name">{{botItem.name}}</p>
+              <h3 class="category-card-title">{{ botItem.category }}</h3>
+              <p class="category-card-name">{{ botItem.name }}</p>
               <article class="category-card-image">
                 <img src="{{botItem.imageSrc}}" alt="">
               </article>
@@ -265,12 +265,14 @@
         <article class="slide-actions">
           <button class="slide-action-btn" (click)="owlCarCard!.prev()">
             <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11 0.5L1.44783 10.0522C1.2005 10.2995 1.2005 10.7005 1.44783 10.9478L11 20.5" stroke="#28295B" stroke-linecap="round"/>
+              <path d="M11 0.5L1.44783 10.0522C1.2005 10.2995 1.2005 10.7005 1.44783 10.9478L11 20.5" stroke="#28295B"
+                    stroke-linecap="round"/>
             </svg>
           </button>
           <button class="slide-action-btn" (click)="owlCarCard!.next()">
             <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 0.5L10.5522 10.0522C10.7995 10.2995 10.7995 10.7005 10.5522 10.9478L1 20.5" stroke="#28295B" stroke-linecap="round"/>
+              <path d="M1 0.5L10.5522 10.0522C10.7995 10.2995 10.7995 10.7005 10.5522 10.9478L1 20.5" stroke="#28295B"
+                    stroke-linecap="round"/>
             </svg>
           </button>
         </article>
@@ -282,6 +284,71 @@
 
 <section class="bot-help">
   <article class="container">
+    <h2 class="title bot-help-title">
+      Мы поможем вам подключить бота к <span class="title-color">любой телефонии</span> и <span class="title-color">любой CRM системе без дополнительных</span>
+      платежей
+    </h2>
+    <section class="bot-help-image"></section>
+    <section class="bot-help-text-block">
+      <article class="inner">
+        <p class="bot-help-text-title">Ваши Voxify боты будут иметь:</p>
+        <ul>
+          <li>личный кабинет с детальной аналитикой всех звонков</li>
+          <li>удобный модуль создания бота в пару кликов (выбор голоса, тональности, характера, направления обработок)
+          </li>
+          <li>бесплатные шаблоны для разных типов бизнеса</li>
+        </ul>
+        <p class="bot-help-text-description">Вы можете создавать несколько ботов для решения разных задач.</p>
+      </article>
+    </section>
+  </article>
+</section>
 
+<section class="road-map">
+  <article class="container">
+    <h2 class="title road-map-title">
+      Этапы внедрения голосового бота
+    </h2>
+    <p class="road-map-description">
+      Голосовые роботы обладают сложной логикой и искусственным интеллектом,
+      поэтому все заботы по созданию голосового робота мы берем на себя
+    </p>
+
+    <section class="road-map-items-block">
+      <article class="road-map-image">
+        <img src="images/voice.png" alt="Voice">
+      </article>
+      <article class="road-map-items">
+        <section class="road-map-item">
+          <article class="road-map-item-angle-bg"></article>
+          <p class="road-map-item-number">1</p>
+          <p class="road-map-item-title">Оставьте заявку</p>
+          <p class="road-map-item-text">Наш специалист свяжется с вами
+            для подтверждения и уточнения деталей</p>
+        </section>
+        <section class="road-map-item">
+          <article class="road-map-item-angle-bg"></article>
+          <p class="road-map-item-number">2</p>
+          <p class="road-map-item-title">Погружение <br>
+            в проблему</p>
+          <p class="road-map-item-text">После подписания договора, мы анализируем ваши бизнес-процессы и настраиваем
+            робота под ваши задачи</p>
+        </section>
+        <section class="road-map-item">
+          <article class="road-map-item-angle-bg"></article>
+          <p class="road-map-item-number">3</p>
+          <p class="road-map-item-title">Внедрение</p>
+          <p class="road-map-item-text">Подключаем бота к вашей телефонии, настраиваем выгрузку отчетов, подключаем к
+            реальным разговорам</p>
+        </section>
+        <section class="road-map-item">
+          <article class="road-map-item-angle-bg"></article>
+          <p class="road-map-item-number">4</p>
+          <p class="road-map-item-title">Контроль</p>
+          <p class="road-map-item-text">В течение двух недель после запуска мы отслеживаем работу бота и при
+            необходимости вносим дополнительные корректировки, для удовлетворения ваших запросов</p>
+        </section>
+      </article>
+    </section>
   </article>
 </section>

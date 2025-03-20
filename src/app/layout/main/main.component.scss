@@ -117,7 +117,6 @@
   }
 }
 
-
 .action-block {
   .action-items {
     display: flex;
@@ -622,6 +621,150 @@
   }
 }
 
+.bot-help {
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .bot-help-title {
+      font-weight: 600;
+      font-size: 32px;
+      max-width: 930px;
+      margin-bottom: 35px;
+    }
+
+    .bot-help-image {
+      max-width: 1080px;
+      width: 100%;
+      height: 229px;
+      background-image: url("../../../../public/images/bot-road.png");
+      background-size: contain;
+      margin-bottom: 20px;
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    .bot-help-text-block {
+      position: relative;
+      padding: 2px; /* толщина границы */
+      border-radius: 20px;
+      background: linear-gradient(84.45deg, #9E78D6 -2.89%, #C78BF6 41.97%, #DC8ADE 134.45%);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .bot-help-text-block > .inner {
+      padding: 18px;
+      border-radius: 18px; /* чуть меньше внешнего из-за толщины границы */
+      background: #ffffff; /* или любой другой цвет фона */
+
+      .bot-help-text-title {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 120%;
+        padding-inline-start: 20px;
+        margin-bottom: 10px;
+      }
+
+      .bot-help-text-description {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 100%;
+      }
+    }
+  }
+}
+
+.road-map {
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .road-map-title {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .road-map-description {
+      max-width: 640px;
+      margin-bottom: 35px;
+    }
+
+    .road-map-items-block {
+      position: relative;
+
+      .road-map-image {
+        position: absolute;
+        bottom: 9px;
+        left: 0;
+        z-index: -1;
+      }
+
+      .road-map-items {
+        margin-left: 115px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-image: url("../../../../public/images/union.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        .road-map-item {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          width: 230px;
+          height: 195px;
+          box-sizing: border-box;
+          padding: 20px;
+
+
+          .road-map-item-angle-bg {
+            background-image: url("../../../../public/images/left-top-bg.png");
+            background-repeat: no-repeat;
+            background-size: auto;
+            width: 80px;
+            height: 63px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          .road-map-item-number {
+            position: relative;
+            font-weight: 600;
+            font-size: 48px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 1);
+            line-height: 65%;
+            margin-bottom: 10px;
+          }
+
+          .road-map-item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+          }
+
+          .road-map-item-text {
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 @media screen and (max-width: 1199px) {
 
@@ -970,6 +1113,124 @@
       }
     }
   }
+
+  .bot-help {
+    .container {
+      padding-top: 35px;
+      padding-bottom: 35px;
+
+      .bot-help-title {
+        font-size: 20px;
+        max-width: 589px;
+        margin-bottom: 25px;
+      }
+
+      .bot-help-image {
+        height: 146px;
+        margin-bottom: 10px;
+      }
+
+      .bot-help-text-block {
+        padding: 1px; /* толщина границы */
+        border-radius: 15px;
+        max-width: 470px;
+
+      }
+
+      .bot-help-text-block > .inner {
+        padding: 9px;
+        border-radius: 14px; /* чуть меньше внешнего из-за толщины границы */
+
+        .bot-help-text-title {
+          font-size: 10px;
+          margin-bottom: 5px;
+        }
+
+        ul {
+          font-size: 8px;
+          padding-inline-start: 5px; /* расстояние от края до маркера */
+          margin-bottom: 5px;
+          list-style: none; /* убираем стандартный маркер */
+          li {
+            position: relative;
+            padding-left: 7px; /* расстояние от маркера до текста */
+
+            &::before {
+              content: "•"; /* свой маркер, например, точка */
+              position: absolute;
+              left: 0; /* позиция маркера относительно li */
+            }
+          }
+        }
+
+        .bot-help-text-description {
+          font-size: 6px;
+        }
+      }
+    }
+  }
+
+  .road-map {
+    .container {
+      padding-top: 35px;
+      padding-bottom: 45px;
+
+      .road-map-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+
+      .road-map-description {
+        max-width: 400px;
+        margin-bottom: 15px;
+        font-size: 10px;
+      }
+
+      .road-map-items-block {
+
+        .road-map-image {
+          bottom: 5px;
+
+          img {
+            width: 175px;
+          }
+        }
+
+        .road-map-items {
+          margin-left: 71px;
+
+          .road-map-item {
+            border-radius: 15px;
+            width: 147px;
+            height: 125px;
+            padding: 10px;
+
+
+            .road-map-item-angle-bg {
+              width: 50px;
+              height: 40px;
+              background-position: bottom right;
+              background-size: contain;
+            }
+
+            .road-map-item-number {
+              font-size: 30px;
+              margin-bottom: 15px;
+            }
+
+            .road-map-item-title {
+              font-size: 10px;
+              margin-bottom: 3px;
+            }
+
+            .road-map-item-text {
+              font-size: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1295,6 +1556,88 @@
 
           .slide-actions {
             display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  .bot-help {
+    .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      .bot-help-title {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .bot-help-image {
+        height: 266px;
+        margin-bottom: 25px;
+        background-image: url("../../../../public/images/bot-road-mob.png");
+      }
+
+      .bot-help-text-block .inner {
+        ul {
+          font-size: 6px;
+        }
+
+        .bot-help-text-description {
+          font-size: 5px;
+        }
+      }
+    }
+  }
+
+  .road-map {
+    .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      .road-map-title {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .road-map-description {
+        max-width: 240px;
+        margin: 0 auto 15px;
+        font-size: 6px;
+        text-align: center;
+      }
+
+      .road-map-items-block {
+
+        .road-map-image {
+          bottom: unset;
+          top: 15px;
+
+          img {
+            width: 125px;
+          }
+        }
+
+        .road-map-items {
+          margin-left: 71px;
+          background-image: url("../../../../public/images/union-vert.png");
+          flex-direction: column;
+          gap: 10px;
+          width: fit-content;
+
+          .road-map-item {
+            width: 161px;
+            height: 94px;
+
+            .road-map-item-angle-bg {
+              width: 42px;
+              height: 30px;
+              left: -5px;
+            }
+
+            .road-map-item-number {
+              font-size: 16px;
+            }
           }
         }
       }
