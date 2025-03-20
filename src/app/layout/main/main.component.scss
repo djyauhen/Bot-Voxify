@@ -705,6 +705,10 @@
         bottom: 9px;
         left: 0;
         z-index: -1;
+
+        &.road-map-image-bottom {
+          display: none;
+        }
       }
 
       .road-map-items {
@@ -1615,6 +1619,14 @@
 
           img {
             width: 125px;
+          }
+
+          &.road-map-image-bottom {
+            display: block;
+            bottom: 15px;
+            right: 0;
+            left: unset;
+            top: unset;
           }
         }
 
