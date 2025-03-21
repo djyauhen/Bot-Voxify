@@ -73,7 +73,7 @@ export class MainComponent {
       0: {
         items: 1,       // 1 слайд на экранах < 692px
       },
-      688: {
+      768: {
         items: 3,       // 3 слайда на экранах >= 692px
       }
     }

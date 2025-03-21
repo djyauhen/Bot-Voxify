@@ -163,3 +163,46 @@
     }
   }
 }
+
+
+@media screen and (max-width: 767px) {
+
+  $container-width: 320;
+
+  .audio-player {
+    max-width: 100%;
+    padding: calc(5 / $container-width * 100vw);
+    border-radius: calc(12 / $container-width * 100vw);
+
+    .play-btn {
+      width: calc(20 / $container-width * 100vw);
+      height: calc(20 / $container-width * 100vw);
+
+      svg {
+        height: calc(10 / $container-width * 100vw);
+      }
+    }
+
+    .progressbar {
+      width: calc(164 / $container-width * 100vw);
+
+      .progress-input {
+        top: calc(-1.5 / $container-width * 100vw);
+        position: relative;
+      }
+
+      .progress-input, .progress-input::-moz-range-track, .progress-input::-webkit-slider-runnable-track, .progress-input::-moz-range-progress, .progress-input::-ms-track {
+        height: calc(2 / $container-width * 100vw);
+      }
+
+      .progressbar-time {
+        font-size: calc(5 / $container-width * 100vw);
+      }
+    }
+
+    .volume-control {
+      width: calc(10 / $container-width * 100vw);
+      height: calc(10 / $container-width * 100vw);
+    }
+  }
+}

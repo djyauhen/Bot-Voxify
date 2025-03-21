@@ -1,5 +1,7 @@
 @import "../../../../styles/fonts.scss";
 
+$container-width: 1200;
+
 * {
   margin: 0;
   padding: 0;
@@ -58,7 +60,7 @@
 
 .title {
   font-weight: 600;
-  font-size: 48px;
+  font-size: 32px;
   line-height: 120%;
   color: rgba(40, 41, 91, 1);
 
@@ -82,10 +84,14 @@
       margin: 0 auto;
       background-color: #FFFFFF;
       border: 2px solid rgba(233, 216, 255, 1);
-      border-radius: 300px;
+      border-radius: calc((300 / $container-width) * 100vw);
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .logo {
+        width: 95px;
+      }
 
       .header-action {
         display: flex;
@@ -136,9 +142,9 @@
       }
 
       .action-input {
-        border-radius: 300px;
+        border-radius: 30px;
         border: 2px solid rgba(162, 111, 222, 1);
-        padding: 15px 15px;
+        padding: 15px;
         font-weight: 600;
         font-size: 16px;
         line-height: 100%;
@@ -197,6 +203,10 @@
       grid-area: title-block;
       margin-bottom: 60px;
 
+      .main-title {
+        font-size: 48px;
+      }
+
       .subtitle {
         font-weight: 600;
         font-size: 24px;
@@ -240,7 +250,6 @@
     padding-bottom: 50px;
 
     .advantages-title {
-      font-size: 32px;
       margin-bottom: 35px;
     }
 
@@ -284,7 +293,6 @@
     padding-bottom: 111px;
 
     .tasks-title {
-      font-size: 32px;
       margin-bottom: 35px;
     }
 
@@ -338,9 +346,6 @@
       margin-left: 220px;
       margin-bottom: 35px;
 
-      .differents-title {
-        font-size: 32px;
-      }
     }
 
     .different-items {
@@ -443,7 +448,6 @@
     .test-order-title {
       grid-area: title;
       max-width: 470px;
-      font-size: 32px;
       color: rgba(255, 255, 255, 1);
       margin-bottom: 10px;
       margin-top: 20px;
@@ -512,7 +516,6 @@
       margin-bottom: 35px;
       max-width: 800px;
       font-weight: 600;
-      font-size: 32px;
     }
 
     .categories-items {
@@ -628,7 +631,6 @@
 
     .bot-help-title {
       font-weight: 600;
-      font-size: 32px;
       max-width: 930px;
       margin-bottom: 35px;
     }
@@ -688,7 +690,6 @@
 
     .road-map-title {
       font-weight: 600;
-      font-size: 32px;
       margin-bottom: 35px;
     }
 
@@ -773,7 +774,7 @@
 @media screen and (max-width: 1199px) {
 
   .title {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .btn {
@@ -863,6 +864,10 @@
         grid-area: title-block;
         margin-bottom: 40px;
 
+        .main-title {
+          font-size: 30px;
+        }
+
         .subtitle {
           font-size: 16px;
         }
@@ -894,7 +899,6 @@
     padding-bottom: 35px;
 
     .advantages-title {
-      font-size: 20px;
       margin-bottom: 25px;
     }
 
@@ -922,7 +926,6 @@
     padding-bottom: 35px;
 
     .tasks-title {
-      font-size: 20px;
       margin-bottom: 25px;
     }
 
@@ -964,7 +967,6 @@
       margin-bottom: 15px;
 
       .differents-title {
-        font-size: 20px;
       }
     }
 
@@ -1033,7 +1035,6 @@
 
       .test-order-title {
         max-width: 287px;
-        font-size: 20px;
         margin-bottom: 5px;
         margin-top: 0;
       }
@@ -1065,7 +1066,6 @@
       .category-title {
         margin-bottom: 25px;
         max-width: 500px;
-        font-size: 20px;
       }
 
       .categories-items {
@@ -1124,7 +1124,6 @@
       padding-bottom: 35px;
 
       .bot-help-title {
-        font-size: 20px;
         max-width: 589px;
         margin-bottom: 25px;
       }
@@ -1180,7 +1179,6 @@
       padding-bottom: 45px;
 
       .road-map-title {
-        font-size: 20px;
         margin-bottom: 25px;
       }
 
@@ -1238,17 +1236,20 @@
 }
 
 @media screen and (max-width: 767px) {
+  $container-width: 320;
+
   .container {
-    max-width: 320px;
-    padding: 0 10px;
+    max-width: calc(320 / $container-width * 100vw);
+    padding: calc(30 / $container-width * 100vw) calc(10 / $container-width * 100vw);
   }
 
   .title {
-    font-size: 26px;
+    font-size: calc(14 / $container-width * 100vw);
+    text-align: center;
   }
 
   .action-block {
-    max-width: 225px;
+    max-width: calc(225 / $container-width * 100vw);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1258,7 +1259,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: calc(5 / $container-width * 100vw);
 
       .action-item .btn {
         width: 100%;
@@ -1266,9 +1267,9 @@
     }
 
     .action-block-text {
-      font-size: 5px;
+      font-size: calc(5 / $container-width * 100vw);
       margin-left: unset;
-      max-width: 154px;
+      max-width: calc(154 / $container-width * 100vw);
       text-align: center;
     }
   }
@@ -1276,15 +1277,30 @@
   .header {
 
     .container {
-      padding: 10px;
+      padding: calc(10 / $container-width * 100vw);
 
       .border-block {
         background: #FFFFFF;
         margin: 0;
-        padding: 5px;
+        padding: calc(5 / $container-width * 100vw);
+
+        .logo {
+          width: calc(60 / $container-width * 100vw);
+        }
 
         .header-action {
-          gap: 10px;
+          gap: calc(10 / $container-width * 100vw);
+
+          .action-btn {
+            width: calc(81 / $container-width * 100vw);
+            height: calc(24 / $container-width * 100vw);
+            font-size: calc(10 / $container-width * 100vw);
+          }
+
+          .lang {
+            font-size: calc(10 / $container-width * 100vw);
+            gap: calc(3 / $container-width * 100vw);
+          }
         }
       }
     }
@@ -1302,198 +1318,209 @@
         "info-block"
         "action-block";
       grid-template-rows: auto auto auto auto;
-      grid-template-columns: 300px;
+      grid-template-columns: calc(300 / $container-width * 100vw);
       justify-items: center;
-      padding-top: 20px;
+      padding-top: calc(20 / $container-width * 100vw);
 
       .title-block {
-        margin-bottom: 15px;
+        margin-bottom: calc(15 / $container-width * 100vw);
         text-align: center;
-        max-width: 200px;
+        max-width: calc(200 / $container-width * 100vw);
+
+        .main-title {
+          font-size: calc(26 / $container-width * 100vw);
+        }
 
         .subtitle {
-          font-size: 10px;
+          font-size: calc(10 / $container-width * 100vw);
         }
       }
 
       .info-block {
         background: rgba(244, 248, 251, 1);
-        border-radius: 15px;
-        margin-bottom: 15px;
-        padding: 5px 10px;
-        gap: 10px;
+        border-radius: calc(15 / $container-width * 100vw);
+        margin-bottom: calc(15 / $container-width * 100vw);
+        padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw);
+        gap: calc(10 / $container-width * 100vw);
         justify-content: center;
 
         .info-item-image {
-          width: 20px;
-          height: 20px;
+          width: calc(20 / $container-width * 100vw);
+          height: calc(20 / $container-width * 100vw);
         }
 
         .info-block-item .info-item-text {
-          font-size: 6px;
+          font-size: calc(6 / $container-width * 100vw);
+        }
+      }
+
+      .action-block .action-items .action-item {
+        .action-item-text {
+          font-size: calc(6 / $container-width * 100vw);
+        }
+
+        .btn, .btn::placeholder {
+          height: auto;
+          border-radius: calc(30 / $container-width * 100vw);
+          padding: calc(13 / $container-width * 100vw);;
+          font-size: calc(10 / $container-width * 100vw);
         }
       }
 
       .first-screen-image {
-        width: 187px;
-        height: 178px;
-        margin-bottom: 15px;
+        width: calc(187 / $container-width * 100vw);
+        height: calc(178 / $container-width * 100vw);
+        margin-bottom: calc(15 / $container-width * 100vw);
       }
     }
   }
 
   .advantages .container {
-    padding-top: 30px;
-    padding-bottom: 30px;
 
     .advantages-title {
-      font-size: 14px;
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: calc(25 / $container-width * 100vw);
     }
 
     .advantage-items {
       flex-direction: column;
-      max-height: 320px;
-      max-width: 250px;
-      gap: 15px 50px;
+      max-height: calc(320 / $container-width * 100vw);
+      max-width: calc(250 / $container-width * 100vw);
+      gap: calc(15 / $container-width * 100vw) calc(50 / $container-width * 100vw);
       align-items: center;
       margin: 0 auto;
 
       .advantage-item {
-        width: 100px;
+        width: calc(100 / $container-width * 100vw);
         display: flex;
         flex-direction: column;
         align-items: center;
 
 
         .advantage-icon {
-          width: 30px;
-          height: 30px;
+          width: calc(30 / $container-width * 100vw);
+          height: calc(30 / $container-width * 100vw);
           text-align: center;
-          margin-bottom: 5px;
+          margin-bottom: calc(5 / $container-width * 100vw);
         }
 
         .advantage-text {
           text-align: center;
-          font-size: 8px;
+          font-size: calc(8 / $container-width * 100vw);
         }
       }
     }
   }
 
   .tasks .container {
-    padding-top: 30px;
-    padding-bottom: 11px;
+    padding-bottom: calc(11 / $container-width * 100vw);
 
     .tasks-title {
-      font-size: 14px;
-      max-width: 170px;
+      max-width: calc(170 / $container-width * 100vw);
       text-align: center;
-      margin: 0 auto 25px;
+      margin: 0 auto calc(25 / $container-width * 100vw);
     }
 
     .task-block {
-      gap: 25px;
+      gap: calc(25 / $container-width * 100vw);
       flex-direction: column;
 
       .task-items {
-        gap: 13px 43px;
+        gap: calc(13 / $container-width * 100vw) calc(43 / $container-width * 100vw);
 
         .task-item {
-          padding: 5px 10px 10px;
+          padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw) calc(10 / $container-width * 100vw);
 
 
           .task-item-number {
-            font-size: 16px;
+            font-size: calc(16 / $container-width * 100vw);
             margin-bottom: 0;
           }
 
           .task-item-text {
-            font-size: 6px;
+            font-size: calc(6 / $container-width * 100vw);
           }
         }
       }
 
       .task-block-image {
-        width: 218px;
-        height: 203px;
+        width: calc(218 / $container-width * 100vw);
+        height: calc(203 / $container-width * 100vw);
       }
     }
   }
 
   .differents .container {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: calc(30 / $container-width * 100vw);
+    padding-bottom: calc(30 / $container-width * 100vw);
 
     .title-block {
-      margin-left: 60px;
+      margin-left: calc(50 / $container-width * 100vw);
 
       .differents-title {
-        font-size: 14px;
-        max-width: 120px;
+        max-width: calc(120 / $container-width * 100vw);
+        text-align: center;
       }
     }
 
     .different-items {
-      gap: 1px;
-      margin-bottom: 15px;
+      gap: calc(1 / $container-width * 100vw);
+      margin-bottom: calc(15 / $container-width * 100vw);
 
       .different-item {
 
         .different-name {
-          width: 55px;
-          font-size: 5px;
+          width: calc(55 / $container-width * 100vw);
+          font-size: calc(5 / $container-width * 100vw);
         }
 
         .different-text-block {
-          border-radius: 15px 0 0 15px;
-          height: 44px;
-          font-size: 6px;
-          gap: 10px;
+          border-radius: calc(15 / $container-width * 100vw) 0 0 calc(15 / $container-width * 100vw);
+          height: calc(44 / $container-width * 100vw);
+          font-size: calc(6 / $container-width * 100vw);
+          gap: calc(10 / $container-width * 100vw);
 
           .different-left {
-            padding: 10px 5px;
-            width: 110px;
-            height: 42px;
+            padding: calc(10 / $container-width * 100vw) calc(5 / $container-width * 100vw);
+            width: calc(110 / $container-width * 100vw);
+            height: calc(42 / $container-width * 100vw);
             text-align: center;
+            border-radius: calc(15 / $container-width * 100vw);
           }
 
           .different-left::before {
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            border-radius: 16px; /* скругление обводки */
+            top: calc(-1 / $container-width * 100vw);
+            left: calc(-1 / $container-width * 100vw);
+            right: calc(-1 / $container-width * 100vw);
+            bottom: calc(-1 / $container-width * 100vw);
+            border-radius: calc(16 / $container-width * 100vw); /* скругление обводки */
           }
 
           .different-right {
-            width: 114px;
-            padding: 5px 5px 5px 0;
+            width: calc(114 / $container-width * 100vw);
+            padding: calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) 0;
           }
 
           &.first-item {
-            border-top-right-radius: 15px;
+            border-top-right-radius: calc(15 / $container-width * 100vw);
           }
 
           &.last-item {
-            border-bottom-right-radius: 15px;
+            border-bottom-right-radius: calc(15 / $container-width * 100vw);
           }
         }
       }
     }
 
     .bot-description {
-      font-size: 6px;
+      font-size: calc(6 / $container-width * 100vw);
     }
   }
 
   .test-order {
-    border-radius: 20px;
+    border-radius: calc(20 / $container-width * 100vw);
 
     .container {
-      padding-top: 30px;
-      padding-bottom: 30px;
       grid-template:
       "title"
       "subtitle"
@@ -1505,50 +1532,61 @@
 
 
       .test-order-title {
-        font-size: 14px;
-        margin-bottom: 5px;
+        margin: 0 auto calc(5 / $container-width * 100vw);
+        max-width: calc(287 / $container-width * 100vw);
         text-align: center;
       }
 
       .test-order-subtitle-block {
-        margin-bottom: 25px;
+        margin-bottom: calc(25 / $container-width * 100vw);
 
         .test-order-subtitle {
-          font-size: 6px;
+          font-size: calc(6 / $container-width * 100vw);
           text-align: center;
         }
       }
 
       .action-block {
         margin-bottom: 0;
+
+        .action-items .action-item {
+          .action-item-text {
+            font-size: calc(6 / $container-width * 100vw);
+          }
+
+          .btn, .btn::placeholder {
+            height: auto;
+            border-radius: calc(30 / $container-width * 100vw);
+            padding: calc(13 / $container-width * 100vw);
+            font-size: calc(10 / $container-width * 100vw);
+          }
+        }
       }
 
       .screen-image {
-        width: 165px;
-        height: 165px;
-        margin-bottom: 25px;
+        width: calc(165 / $container-width * 100vw);
+        height: calc(165 / $container-width * 100vw);
+        margin-bottom: calc(25 / $container-width * 100vw);
       }
     }
   }
 
   .category {
     .container {
-      padding-top: 30px;
-      padding-bottom: 30px;
 
       .category-title {
-        margin-bottom: 15px;
-        max-width: 270px;
-        font-size: 14px;
+        margin: 0 auto calc(15 / $container-width * 100vw);
+        max-width: calc(270 / $container-width * 100vw);
         text-align: center;
       }
 
       .categories-items {
         .categories-btn {
-          gap: 3px;
+          gap: calc(3 / $container-width * 100vw);
 
           .category-btn {
-            font-size: 5px;
+            padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw);
+            font-size: calc(5 / $container-width * 100vw);
           }
         }
 
@@ -1556,6 +1594,35 @@
 
           .category-card {
             margin: 0 auto;
+            background: rgb(244, 248, 251);
+            width: calc(224 / $container-width * 100vw);
+            border-radius: calc(15 / $container-width * 100vw);
+            padding: calc(10 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(8 / $container-width * 100vw);
+
+            .category-card-image {
+              bottom: calc(65 / $container-width * 100vw);
+            }
+
+            .category-card-title {
+              font-size: calc(6 / $container-width * 100vw);
+              margin-left: calc(5 / $container-width * 100vw);
+            }
+
+            .category-card-name {
+              padding: calc(5 / $container-width * 100vw);
+              border-radius: calc(20 / $container-width * 100vw);
+              margin-bottom: calc(65 / $container-width * 100vw);
+              font-size: calc(8 / $container-width * 100vw);
+            }
+
+            .category-card-player-block {
+              border-radius: calc(12 / $container-width * 100vw);
+
+              .category-card-task {
+                font-size: calc(8 / $container-width * 100vw);
+                padding: calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(7 / $container-width * 100vw);
+              }
+            }
           }
 
           .slide-actions {
@@ -1568,27 +1635,46 @@
 
   .bot-help {
     .container {
-      padding-top: 30px;
-      padding-bottom: 30px;
 
       .bot-help-title {
-        font-size: 14px;
         text-align: center;
+        margin: 0 auto;
       }
 
       .bot-help-image {
-        height: 266px;
-        margin-bottom: 25px;
+        height: calc(266 / $container-width * 100vw);
+        margin-bottom: calc(25 / $container-width * 100vw);
         background-image: url("../../../../public/images/bot-road-mob.png");
       }
 
-      .bot-help-text-block .inner {
-        ul {
-          font-size: 6px;
-        }
+      .bot-help-text-block {
+        padding: calc(1 / $container-width * 100vw);
+        border-radius: calc(15 / $container-width * 100vw);
+        max-width: 100%;
 
-        .bot-help-text-description {
-          font-size: 5px;
+        .inner {
+          padding: calc(9 / $container-width * 100vw);
+          border-radius: calc(14 / $container-width * 100vw);
+
+
+          ul {
+            font-size: calc(6 / $container-width * 100vw);
+            padding-inline-start: calc(5 / $container-width * 100vw);
+            margin-bottom: calc(5 / $container-width * 100vw);
+
+            li {
+              padding-left: calc(7 / $container-width * 100vw);
+            }
+          }
+
+          .bot-help-text-description {
+            font-size: calc(5 / $container-width * 100vw);
+          }
+
+          .bot-help-text-title {
+            font-size: calc(10 / $container-width * 100vw);
+            margin-bottom: calc(5 / $container-width * 100vw);
+          }
         }
       }
     }
@@ -1596,18 +1682,15 @@
 
   .road-map {
     .container {
-      padding-top: 30px;
-      padding-bottom: 30px;
 
       .road-map-title {
-        font-size: 14px;
         text-align: center;
       }
 
       .road-map-description {
-        max-width: 240px;
-        margin: 0 auto 15px;
-        font-size: 6px;
+        max-width: calc(240 / $container-width * 100vw);
+        margin: 0 auto calc(15 / $container-width * 100vw);
+        font-size: calc(6 / $container-width * 100vw);
         text-align: center;
       }
 
@@ -1615,15 +1698,15 @@
 
         .road-map-image {
           bottom: unset;
-          top: 15px;
+          top: calc(15 / $container-width * 100vw);
 
           img {
-            width: 125px;
+            width: calc(125 / $container-width * 100vw);
           }
 
           &.road-map-image-bottom {
             display: block;
-            bottom: 15px;
+            bottom: calc(15 / $container-width * 100vw);
             right: 0;
             left: unset;
             top: unset;
@@ -1631,24 +1714,36 @@
         }
 
         .road-map-items {
-          margin-left: 71px;
+          margin-left: calc(71 / $container-width * 100vw);
           background-image: url("../../../../public/images/union-vert.png");
           flex-direction: column;
-          gap: 10px;
+          gap: calc(10 / $container-width * 100vw);
           width: fit-content;
 
           .road-map-item {
-            width: 161px;
-            height: 94px;
+            width: calc(161 / $container-width * 100vw);
+            height: calc(94 / $container-width * 100vw);
+            border-radius: calc(15 / $container-width * 100vw);
+            padding: calc(10 / $container-width * 100vw);
+
+            .road-map-item-title {
+              font-size: calc(10 / $container-width * 100vw);
+              margin-bottom: calc(3 / $container-width * 100vw);
+            }
+
+            .road-map-item-text {
+              font-size: calc(6 / $container-width * 100vw);
+            }
 
             .road-map-item-angle-bg {
-              width: 42px;
-              height: 30px;
-              left: -5px;
+              width: calc(42 / $container-width * 100vw);
+              height: calc(30 / $container-width * 100vw);
+              left: calc(-5 / $container-width * 100vw);
             }
 
             .road-map-item-number {
-              font-size: 16px;
+              font-size: calc(16 / $container-width * 100vw);
+              margin-bottom: calc(15 / $container-width * 100vw);
             }
           }
         }
