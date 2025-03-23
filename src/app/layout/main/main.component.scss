@@ -70,7 +70,8 @@ $container-width: 1200;
 }
 
 .header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   left: 0;
   top: 0;
   z-index: 100;
@@ -188,7 +189,7 @@ $container-width: 1200;
   }
 
   .container {
-    padding-top: 62px;
+    padding-top: 144px;
     padding-bottom: 51px;
     display: grid;
     gap: 0 40px;
@@ -960,9 +961,6 @@ $container-width: 1200;
   }
 
   .header {
-    position: sticky;
-    left: 0;
-    top: 0;
 
     .container {
       padding: 10px 25px;
@@ -1000,7 +998,7 @@ $container-width: 1200;
     }
 
     .container {
-      padding-top: 46px;
+      padding-top: 90px;
       padding-bottom: 35px;
       gap: 0 35px;
       grid-template-rows: 125px 76px 70px;
@@ -1491,7 +1489,6 @@ $container-width: 1200;
   }
 
   .header {
-
     .container {
       padding: calc(10 * $container-width);
 
@@ -1536,7 +1533,7 @@ $container-width: 1200;
       grid-template-rows: auto auto auto auto;
       grid-template-columns: calc(300 * $container-width);
       justify-items: center;
-      padding-top: calc(20 * $container-width);
+      padding-top: calc(66 * $container-width);
 
       .title-block {
         margin-bottom: calc(15 * $container-width);
