@@ -5,6 +5,7 @@ import {routes} from './app.routes';
 import {provideNgxMask} from "ngx-mask";
 import {provideHttpClient} from "@angular/common/http";
 import {provideAnimations} from "@angular/platform-browser/animations";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideNgxMask(),
     provideHttpClient(),
-    provideAnimations()
+    provideAnimations(), provideAnimationsAsync()
   ]
 };

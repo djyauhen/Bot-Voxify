@@ -1,0 +1,32 @@
+<section class="accordion-container">
+  <!-- Панель 1 -->
+  <article class="accordion-item" *ngFor="let panel of panels; let i = index;"
+           [class.active]="panel.states">
+    <section
+      class="accordion-header"
+      (click)="togglePanel(i)"
+    >
+      <article class="accordion-header-container">
+        <h3>{{ panel.title }}</h3>
+        <svg
+          class="accordion-arrow"
+          width="16"
+          height="8"
+          viewBox="0 0 16 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1L7.8014 6.82977C7.91568 6.92773 8.08432 6.92773 8.1986 6.82977L15 1"
+            stroke="#28295B"
+            stroke-width="0.866667"
+            stroke-linecap="round"
+          />
+        </svg>
+      </article>
+    </section>
+    <section class="accordion-content" #content>
+      <p [innerHtml]="panel.text"></p>
+    </section>
+  </article>
+</section>

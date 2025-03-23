@@ -1,4 +1,12 @@
-import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  QueryList,
+  signal,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {NgxMaskDirective} from "ngx-mask";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
@@ -6,6 +14,8 @@ import {AudioPlayerComponent} from "../../shared/components/audio-player/audio-p
 import {BotItemsService} from "../../shared/services/bot-items.service";
 import {BotItemType} from "../../../../types/bot-item.type";
 import {CarouselComponent, CarouselModule, OwlOptions, SlidesOutputData} from "ngx-owl-carousel-o";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {AccordionAsksComponent} from "../../shared/components/accordion-asks/accordion-asks.component";
 
 @Component({
   selector: 'app-main',
@@ -16,6 +26,8 @@ import {CarouselComponent, CarouselModule, OwlOptions, SlidesOutputData} from "n
     NgForOf,
     AudioPlayerComponent,
     CarouselModule,
+    MatExpansionModule,
+    AccordionAsksComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
@@ -71,15 +83,17 @@ export class MainComponent {
     margin: 10,
     responsive: {
       0: {
-        items: 1,       // 1 слайд на экранах < 692px
+        items: 1,
       },
-      768: {
-        items: 3,       // 3 слайда на экранах >= 692px
+      688: {
+        items: 3,
       }
     }
   };
 
   activeIndex = 0;
+
+  readonly panelOpenState = signal(false);
 
   constructor(private readonly titleService: Title,
               private readonly botItemsService: BotItemsService) {

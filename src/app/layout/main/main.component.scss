@@ -770,6 +770,151 @@ $container-width: 1200;
   }
 }
 
+.bot-coast {
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .bot-coast-title {
+      margin-bottom: 35px;
+    }
+
+    .bot-coast-subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .coast-items {
+      display: flex;
+      margin-bottom: 20px;
+
+      .coast-item {
+        padding: 20px 10px;
+        position: relative;
+        max-width: 216px;
+        width: 100%;
+        height: 200px;
+
+        .right-line {
+          width: 1px;
+          background-color: rgba(244, 248, 251, 1);
+          position: absolute;
+          height: 90%;
+          right: 0;
+          bottom: 0;
+        }
+
+        .coast-item-amount {
+          font-weight: 600;
+          font-size: 10px;
+          line-height: 100%;
+          text-transform: uppercase;
+          color: rgba(40, 41, 91, 0.5);
+          margin-bottom: 5px;
+          margin-left: 10px;
+        }
+
+        .coast-item-time {
+          padding: 5px 10px;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 100%;
+          border-radius: 30px;
+          width: fit-content;
+          background-color: rgba(255, 255, 255, 1);
+        }
+
+        .coast-item-bg {
+          position: absolute;
+          width: 100%;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          left: 0;
+          bottom: 0;
+          z-index: -1;
+
+          &.item-1 {
+            height: 15%;
+          }
+
+          &.item-2 {
+            height: 20%;
+          }
+
+          &.item-3 {
+            height: 30%;
+          }
+
+          &.item-4 {
+            height: 50%;
+          }
+
+          &.item-5 {
+            height: 100%;
+          }
+        }
+
+        &.siren {
+          .coast-item-time {
+            border: 1px solid rgba(162, 111, 222, 1);
+          }
+
+          .coast-item-bg {
+            background-color: rgba(162, 111, 222, 1);
+          }
+        }
+
+        &.lilac {
+          .coast-item-time {
+            border: 1px solid rgba(233, 216, 255, 1);
+          }
+
+          .coast-item-bg {
+            background-color: rgba(233, 216, 255, 1);
+          }
+        }
+      }
+    }
+
+    .coast-text {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+    }
+  }
+}
+
+.questions {
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .questions-title {
+      margin-bottom: 35px;
+    }
+
+    .questions-items {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+
+      .accordion-asks {
+        max-width: 688px;
+        width: 100%;
+      }
+
+      .questions-image {
+        width: 335px;
+        height: 335px;
+        position: relative;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1199px) {
 
@@ -820,7 +965,7 @@ $container-width: 1200;
     top: 0;
 
     .container {
-      padding: 0 25px;
+      padding: 10px 25px;
 
       .border-block {
         padding: 5px 15px;
@@ -1081,6 +1226,8 @@ $container-width: 1200;
         }
 
         .categories-carousel {
+          max-width: 688px;
+
           .category-card {
             background: rgba(244, 248, 251, 1);
             width: 224px;
@@ -1233,23 +1380,92 @@ $container-width: 1200;
       }
     }
   }
+
+  .bot-coast {
+    .container {
+      padding-top: 35px;
+      padding-bottom: 35px;
+
+      .bot-coast-title {
+        margin-bottom: 25px;
+      }
+
+      .bot-coast-subtitle {
+        font-size: 10px;
+        margin-bottom: 15px;
+      }
+
+      .coast-items {
+        margin-bottom: 15px;
+
+        .coast-item {
+          padding: 10px 5px;
+          height: 128px;
+
+          .coast-item-amount {
+            font-size: 6px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+          }
+
+          .coast-item-time {
+            padding: 3px 5px;
+            font-size: 8px;
+            border-radius: 20px;
+          }
+
+          .coast-item-bg {
+            border-top-right-radius: 13px;
+            border-top-left-radius: 13px;
+          }
+        }
+      }
+
+      .coast-text {
+        font-size: 8px;
+      }
+    }
+  }
+
+  .questions {
+    .container {
+      padding-top: 35px;
+      padding-bottom: 35px;
+
+      .questions-title {
+        margin-bottom: 25px;
+      }
+
+      .questions-items {
+
+        .accordion-asks {
+          max-width: 440px;
+        }
+
+        .questions-image {
+          width: 215px;
+          height: 215px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-  $container-width: 320;
+  $container-width: calc(100vw / 320);
 
   .container {
-    max-width: calc(320 / $container-width * 100vw);
-    padding: calc(30 / $container-width * 100vw) calc(10 / $container-width * 100vw);
+    max-width: calc(320 * $container-width);
+    padding: calc(30 * $container-width) calc(10 * $container-width);
   }
 
   .title {
-    font-size: calc(14 / $container-width * 100vw);
+    font-size: calc(14 * $container-width);
     text-align: center;
   }
 
   .action-block {
-    max-width: calc(225 / $container-width * 100vw);
+    max-width: calc(225 * $container-width);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1259,7 +1475,7 @@ $container-width: 1200;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: calc(5 / $container-width * 100vw);
+      gap: calc(5 * $container-width);
 
       .action-item .btn {
         width: 100%;
@@ -1267,9 +1483,9 @@ $container-width: 1200;
     }
 
     .action-block-text {
-      font-size: calc(5 / $container-width * 100vw);
+      font-size: calc(5 * $container-width);
       margin-left: unset;
-      max-width: calc(154 / $container-width * 100vw);
+      max-width: calc(154 * $container-width);
       text-align: center;
     }
   }
@@ -1277,29 +1493,29 @@ $container-width: 1200;
   .header {
 
     .container {
-      padding: calc(10 / $container-width * 100vw);
+      padding: calc(10 * $container-width);
 
       .border-block {
         background: #FFFFFF;
         margin: 0;
-        padding: calc(5 / $container-width * 100vw);
+        padding: calc(5 * $container-width);
 
         .logo {
-          width: calc(60 / $container-width * 100vw);
+          width: calc(60 * $container-width);
         }
 
         .header-action {
-          gap: calc(10 / $container-width * 100vw);
+          gap: calc(10 * $container-width);
 
           .action-btn {
-            width: calc(81 / $container-width * 100vw);
-            height: calc(24 / $container-width * 100vw);
-            font-size: calc(10 / $container-width * 100vw);
+            width: calc(81 * $container-width);
+            height: calc(24 * $container-width);
+            font-size: calc(10 * $container-width);
           }
 
           .lang {
-            font-size: calc(10 / $container-width * 100vw);
-            gap: calc(3 / $container-width * 100vw);
+            font-size: calc(10 * $container-width);
+            gap: calc(3 * $container-width);
           }
         }
       }
@@ -1318,59 +1534,59 @@ $container-width: 1200;
         "info-block"
         "action-block";
       grid-template-rows: auto auto auto auto;
-      grid-template-columns: calc(300 / $container-width * 100vw);
+      grid-template-columns: calc(300 * $container-width);
       justify-items: center;
-      padding-top: calc(20 / $container-width * 100vw);
+      padding-top: calc(20 * $container-width);
 
       .title-block {
-        margin-bottom: calc(15 / $container-width * 100vw);
+        margin-bottom: calc(15 * $container-width);
         text-align: center;
-        max-width: calc(200 / $container-width * 100vw);
+        max-width: calc(200 * $container-width);
 
         .main-title {
-          font-size: calc(26 / $container-width * 100vw);
+          font-size: calc(26 * $container-width);
         }
 
         .subtitle {
-          font-size: calc(10 / $container-width * 100vw);
+          font-size: calc(10 * $container-width);
         }
       }
 
       .info-block {
         background: rgba(244, 248, 251, 1);
-        border-radius: calc(15 / $container-width * 100vw);
-        margin-bottom: calc(15 / $container-width * 100vw);
-        padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw);
-        gap: calc(10 / $container-width * 100vw);
+        border-radius: calc(15 * $container-width);
+        margin-bottom: calc(15 * $container-width);
+        padding: calc(5 * $container-width) calc(10 * $container-width);
+        gap: calc(10 * $container-width);
         justify-content: center;
 
         .info-item-image {
-          width: calc(20 / $container-width * 100vw);
-          height: calc(20 / $container-width * 100vw);
+          width: calc(20 * $container-width);
+          height: calc(20 * $container-width);
         }
 
         .info-block-item .info-item-text {
-          font-size: calc(6 / $container-width * 100vw);
+          font-size: calc(6 * $container-width);
         }
       }
 
       .action-block .action-items .action-item {
         .action-item-text {
-          font-size: calc(6 / $container-width * 100vw);
+          font-size: calc(6 * $container-width);
         }
 
         .btn, .btn::placeholder {
           height: auto;
-          border-radius: calc(30 / $container-width * 100vw);
-          padding: calc(13 / $container-width * 100vw);;
-          font-size: calc(10 / $container-width * 100vw);
+          border-radius: calc(30 * $container-width);
+          padding: calc(13 * $container-width);;
+          font-size: calc(10 * $container-width);
         }
       }
 
       .first-screen-image {
-        width: calc(187 / $container-width * 100vw);
-        height: calc(178 / $container-width * 100vw);
-        margin-bottom: calc(15 / $container-width * 100vw);
+        width: calc(187 * $container-width);
+        height: calc(178 * $container-width);
+        margin-bottom: calc(15 * $container-width);
       }
     }
   }
@@ -1379,146 +1595,146 @@ $container-width: 1200;
 
     .advantages-title {
       text-align: center;
-      margin-bottom: calc(25 / $container-width * 100vw);
+      margin-bottom: calc(25 * $container-width);
     }
 
     .advantage-items {
       flex-direction: column;
-      max-height: calc(320 / $container-width * 100vw);
-      max-width: calc(250 / $container-width * 100vw);
-      gap: calc(15 / $container-width * 100vw) calc(50 / $container-width * 100vw);
+      max-height: calc(320 * $container-width);
+      max-width: calc(250 * $container-width);
+      gap: calc(15 * $container-width) calc(50 * $container-width);
       align-items: center;
       margin: 0 auto;
 
       .advantage-item {
-        width: calc(100 / $container-width * 100vw);
+        width: calc(100 * $container-width);
         display: flex;
         flex-direction: column;
         align-items: center;
 
 
         .advantage-icon {
-          width: calc(30 / $container-width * 100vw);
-          height: calc(30 / $container-width * 100vw);
+          width: calc(30 * $container-width);
+          height: calc(30 * $container-width);
           text-align: center;
-          margin-bottom: calc(5 / $container-width * 100vw);
+          margin-bottom: calc(5 * $container-width);
         }
 
         .advantage-text {
           text-align: center;
-          font-size: calc(8 / $container-width * 100vw);
+          font-size: calc(8 * $container-width);
         }
       }
     }
   }
 
   .tasks .container {
-    padding-bottom: calc(11 / $container-width * 100vw);
+    padding-bottom: calc(11 * $container-width);
 
     .tasks-title {
-      max-width: calc(170 / $container-width * 100vw);
+      max-width: calc(170 * $container-width);
       text-align: center;
-      margin: 0 auto calc(25 / $container-width * 100vw);
+      margin: 0 auto calc(25 * $container-width);
     }
 
     .task-block {
-      gap: calc(25 / $container-width * 100vw);
+      gap: calc(25 * $container-width);
       flex-direction: column;
 
       .task-items {
-        gap: calc(13 / $container-width * 100vw) calc(43 / $container-width * 100vw);
+        gap: calc(13 * $container-width) calc(43 * $container-width);
 
         .task-item {
-          padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw) calc(10 / $container-width * 100vw);
+          padding: calc(5 * $container-width) calc(10 * $container-width) calc(10 * $container-width);
 
 
           .task-item-number {
-            font-size: calc(16 / $container-width * 100vw);
+            font-size: calc(16 * $container-width);
             margin-bottom: 0;
           }
 
           .task-item-text {
-            font-size: calc(6 / $container-width * 100vw);
+            font-size: calc(6 * $container-width);
           }
         }
       }
 
       .task-block-image {
-        width: calc(218 / $container-width * 100vw);
-        height: calc(203 / $container-width * 100vw);
+        width: calc(218 * $container-width);
+        height: calc(203 * $container-width);
       }
     }
   }
 
   .differents .container {
-    padding-top: calc(30 / $container-width * 100vw);
-    padding-bottom: calc(30 / $container-width * 100vw);
+    padding-top: calc(30 * $container-width);
+    padding-bottom: calc(30 * $container-width);
 
     .title-block {
-      margin-left: calc(50 / $container-width * 100vw);
+      margin-left: calc(50 * $container-width);
 
       .differents-title {
-        max-width: calc(120 / $container-width * 100vw);
+        max-width: calc(120 * $container-width);
         text-align: center;
       }
     }
 
     .different-items {
-      gap: calc(1 / $container-width * 100vw);
-      margin-bottom: calc(15 / $container-width * 100vw);
+      gap: calc(1 * $container-width);
+      margin-bottom: calc(15 * $container-width);
 
       .different-item {
 
         .different-name {
-          width: calc(55 / $container-width * 100vw);
-          font-size: calc(5 / $container-width * 100vw);
+          width: calc(55 * $container-width);
+          font-size: calc(5 * $container-width);
         }
 
         .different-text-block {
-          border-radius: calc(15 / $container-width * 100vw) 0 0 calc(15 / $container-width * 100vw);
-          height: calc(44 / $container-width * 100vw);
-          font-size: calc(6 / $container-width * 100vw);
-          gap: calc(10 / $container-width * 100vw);
+          border-radius: calc(15 * $container-width) 0 0 calc(15 * $container-width);
+          height: calc(44 * $container-width);
+          font-size: calc(6 * $container-width);
+          gap: calc(10 * $container-width);
 
           .different-left {
-            padding: calc(10 / $container-width * 100vw) calc(5 / $container-width * 100vw);
-            width: calc(110 / $container-width * 100vw);
-            height: calc(42 / $container-width * 100vw);
+            padding: calc(10 * $container-width) calc(5 * $container-width);
+            width: calc(110 * $container-width);
+            height: calc(42 * $container-width);
             text-align: center;
-            border-radius: calc(15 / $container-width * 100vw);
+            border-radius: calc(15 * $container-width);
           }
 
           .different-left::before {
-            top: calc(-1 / $container-width * 100vw);
-            left: calc(-1 / $container-width * 100vw);
-            right: calc(-1 / $container-width * 100vw);
-            bottom: calc(-1 / $container-width * 100vw);
-            border-radius: calc(16 / $container-width * 100vw); /* скругление обводки */
+            top: calc(-1 * $container-width);
+            left: calc(-1 * $container-width);
+            right: calc(-1 * $container-width);
+            bottom: calc(-1 * $container-width);
+            border-radius: calc(16 * $container-width); /* скругление обводки */
           }
 
           .different-right {
-            width: calc(114 / $container-width * 100vw);
-            padding: calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) 0;
+            width: calc(114 * $container-width);
+            padding: calc(5 * $container-width) calc(5 * $container-width) calc(5 * $container-width) 0;
           }
 
           &.first-item {
-            border-top-right-radius: calc(15 / $container-width * 100vw);
+            border-top-right-radius: calc(15 * $container-width);
           }
 
           &.last-item {
-            border-bottom-right-radius: calc(15 / $container-width * 100vw);
+            border-bottom-right-radius: calc(15 * $container-width);
           }
         }
       }
     }
 
     .bot-description {
-      font-size: calc(6 / $container-width * 100vw);
+      font-size: calc(6 * $container-width);
     }
   }
 
   .test-order {
-    border-radius: calc(20 / $container-width * 100vw);
+    border-radius: calc(20 * $container-width);
 
     .container {
       grid-template:
@@ -1532,16 +1748,16 @@ $container-width: 1200;
 
 
       .test-order-title {
-        margin: 0 auto calc(5 / $container-width * 100vw);
-        max-width: calc(287 / $container-width * 100vw);
+        margin: 0 auto calc(5 * $container-width);
+        max-width: calc(287 * $container-width);
         text-align: center;
       }
 
       .test-order-subtitle-block {
-        margin-bottom: calc(25 / $container-width * 100vw);
+        margin-bottom: calc(25 * $container-width);
 
         .test-order-subtitle {
-          font-size: calc(6 / $container-width * 100vw);
+          font-size: calc(6 * $container-width);
           text-align: center;
         }
       }
@@ -1551,22 +1767,22 @@ $container-width: 1200;
 
         .action-items .action-item {
           .action-item-text {
-            font-size: calc(6 / $container-width * 100vw);
+            font-size: calc(6 * $container-width);
           }
 
           .btn, .btn::placeholder {
             height: auto;
-            border-radius: calc(30 / $container-width * 100vw);
-            padding: calc(13 / $container-width * 100vw);
-            font-size: calc(10 / $container-width * 100vw);
+            border-radius: calc(30 * $container-width);
+            padding: calc(13 * $container-width);
+            font-size: calc(10 * $container-width);
           }
         }
       }
 
       .screen-image {
-        width: calc(165 / $container-width * 100vw);
-        height: calc(165 / $container-width * 100vw);
-        margin-bottom: calc(25 / $container-width * 100vw);
+        width: calc(165 * $container-width);
+        height: calc(165 * $container-width);
+        margin-bottom: calc(25 * $container-width);
       }
     }
   }
@@ -1575,52 +1791,55 @@ $container-width: 1200;
     .container {
 
       .category-title {
-        margin: 0 auto calc(15 / $container-width * 100vw);
-        max-width: calc(270 / $container-width * 100vw);
+        margin: 0 auto calc(15 * $container-width);
+        max-width: calc(270 * $container-width);
         text-align: center;
       }
 
       .categories-items {
         .categories-btn {
-          gap: calc(3 / $container-width * 100vw);
+          gap: calc(3 * $container-width);
 
           .category-btn {
-            padding: calc(5 / $container-width * 100vw) calc(10 / $container-width * 100vw);
-            font-size: calc(5 / $container-width * 100vw);
+            padding: calc(5 * $container-width) calc(10 * $container-width);
+            font-size: calc(5 * $container-width);
           }
         }
 
         .categories-carousel {
+          max-width: 688px;
+          padding-right: 22px;
+          padding-left: 22px;
 
           .category-card {
             margin: 0 auto;
             background: rgb(244, 248, 251);
-            width: calc(224 / $container-width * 100vw);
-            border-radius: calc(15 / $container-width * 100vw);
-            padding: calc(10 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(8 / $container-width * 100vw);
+            width: calc(224 * $container-width);
+            border-radius: calc(15 * $container-width);
+            padding: calc(10 * $container-width) calc(5 * $container-width) calc(8 * $container-width);
 
             .category-card-image {
-              bottom: calc(65 / $container-width * 100vw);
+              bottom: calc(65 * $container-width);
             }
 
             .category-card-title {
-              font-size: calc(6 / $container-width * 100vw);
-              margin-left: calc(5 / $container-width * 100vw);
+              font-size: calc(6 * $container-width);
+              margin-left: calc(5 * $container-width);
             }
 
             .category-card-name {
-              padding: calc(5 / $container-width * 100vw);
-              border-radius: calc(20 / $container-width * 100vw);
-              margin-bottom: calc(65 / $container-width * 100vw);
-              font-size: calc(8 / $container-width * 100vw);
+              padding: calc(5 * $container-width);
+              border-radius: calc(20 * $container-width);
+              margin-bottom: calc(65 * $container-width);
+              font-size: calc(8 * $container-width);
             }
 
             .category-card-player-block {
-              border-radius: calc(12 / $container-width * 100vw);
+              border-radius: calc(12 * $container-width);
 
               .category-card-task {
-                font-size: calc(8 / $container-width * 100vw);
-                padding: calc(5 / $container-width * 100vw) calc(5 / $container-width * 100vw) calc(7 / $container-width * 100vw);
+                font-size: calc(8 * $container-width);
+                padding: calc(5 * $container-width) calc(5 * $container-width) calc(7 * $container-width);
               }
             }
           }
@@ -1642,38 +1861,38 @@ $container-width: 1200;
       }
 
       .bot-help-image {
-        height: calc(266 / $container-width * 100vw);
-        margin-bottom: calc(25 / $container-width * 100vw);
+        height: calc(266 * $container-width);
+        margin-bottom: calc(25 * $container-width);
         background-image: url("../../../../public/images/bot-road-mob.png");
       }
 
       .bot-help-text-block {
-        padding: calc(1 / $container-width * 100vw);
-        border-radius: calc(15 / $container-width * 100vw);
+        padding: calc(1 * $container-width);
+        border-radius: calc(15 * $container-width);
         max-width: 100%;
 
         .inner {
-          padding: calc(9 / $container-width * 100vw);
-          border-radius: calc(14 / $container-width * 100vw);
+          padding: calc(9 * $container-width);
+          border-radius: calc(14 * $container-width);
 
 
           ul {
-            font-size: calc(6 / $container-width * 100vw);
-            padding-inline-start: calc(5 / $container-width * 100vw);
-            margin-bottom: calc(5 / $container-width * 100vw);
+            font-size: calc(6 * $container-width);
+            padding-inline-start: calc(5 * $container-width);
+            margin-bottom: calc(5 * $container-width);
 
             li {
-              padding-left: calc(7 / $container-width * 100vw);
+              padding-left: calc(7 * $container-width);
             }
           }
 
           .bot-help-text-description {
-            font-size: calc(5 / $container-width * 100vw);
+            font-size: calc(5 * $container-width);
           }
 
           .bot-help-text-title {
-            font-size: calc(10 / $container-width * 100vw);
-            margin-bottom: calc(5 / $container-width * 100vw);
+            font-size: calc(10 * $container-width);
+            margin-bottom: calc(5 * $container-width);
           }
         }
       }
@@ -1688,9 +1907,9 @@ $container-width: 1200;
       }
 
       .road-map-description {
-        max-width: calc(240 / $container-width * 100vw);
-        margin: 0 auto calc(15 / $container-width * 100vw);
-        font-size: calc(6 / $container-width * 100vw);
+        max-width: calc(240 * $container-width);
+        margin: 0 auto calc(15 * $container-width);
+        font-size: calc(6 * $container-width);
         text-align: center;
       }
 
@@ -1698,15 +1917,15 @@ $container-width: 1200;
 
         .road-map-image {
           bottom: unset;
-          top: calc(15 / $container-width * 100vw);
+          top: calc(15 * $container-width);
 
           img {
-            width: calc(125 / $container-width * 100vw);
+            width: calc(125 * $container-width);
           }
 
           &.road-map-image-bottom {
             display: block;
-            bottom: calc(15 / $container-width * 100vw);
+            bottom: calc(15 * $container-width);
             right: 0;
             left: unset;
             top: unset;
@@ -1714,38 +1933,107 @@ $container-width: 1200;
         }
 
         .road-map-items {
-          margin-left: calc(71 / $container-width * 100vw);
+          margin-left: calc(71 * $container-width);
           background-image: url("../../../../public/images/union-vert.png");
           flex-direction: column;
-          gap: calc(10 / $container-width * 100vw);
+          gap: calc(10 * $container-width);
           width: fit-content;
 
           .road-map-item {
-            width: calc(161 / $container-width * 100vw);
-            height: calc(94 / $container-width * 100vw);
-            border-radius: calc(15 / $container-width * 100vw);
-            padding: calc(10 / $container-width * 100vw);
+            width: calc(161 * $container-width);
+            height: calc(94 * $container-width);
+            border-radius: calc(15 * $container-width);
+            padding: calc(10 * $container-width);
 
             .road-map-item-title {
-              font-size: calc(10 / $container-width * 100vw);
-              margin-bottom: calc(3 / $container-width * 100vw);
+              font-size: calc(10 * $container-width);
+              margin-bottom: calc(3 * $container-width);
             }
 
             .road-map-item-text {
-              font-size: calc(6 / $container-width * 100vw);
+              font-size: calc(6 * $container-width);
             }
 
             .road-map-item-angle-bg {
-              width: calc(42 / $container-width * 100vw);
-              height: calc(30 / $container-width * 100vw);
-              left: calc(-5 / $container-width * 100vw);
+              width: calc(42 * $container-width);
+              height: calc(30 * $container-width);
+              left: calc(-5 * $container-width);
             }
 
             .road-map-item-number {
-              font-size: calc(16 / $container-width * 100vw);
-              margin-bottom: calc(15 / $container-width * 100vw);
+              font-size: calc(16 * $container-width);
+              margin-bottom: calc(15 * $container-width);
             }
           }
+        }
+      }
+    }
+  }
+
+  .bot-coast {
+    .container {
+
+      .bot-coast-title {
+        margin-bottom: calc(25 * $container-width);
+      }
+
+      .bot-coast-subtitle {
+        font-size: calc(6 * $container-width);
+        text-align: center;
+      }
+
+      .coast-items {
+        margin-bottom: calc(15 * $container-width);
+
+        .coast-item {
+          padding: calc(5 * $container-width) calc(2 * $container-width);
+          height: calc(72 * $container-width);
+
+          .coast-item-amount {
+            font-size: calc(5 * $container-width);
+            margin-bottom: calc(2 * $container-width);
+            margin-left: calc(3 * $container-width);
+          }
+
+          .coast-item-time {
+            padding: calc(2 * $container-width) calc(3 * $container-width);
+            font-size: calc(5 * $container-width);
+            border-radius: calc(9 * $container-width);
+          }
+
+          .coast-item-bg {
+            border-top-right-radius: calc(3 * $container-width);
+            border-top-left-radius: calc(3 * $container-width);
+          }
+        }
+      }
+
+      .coast-text {
+        text-align: center;
+        font-size: calc(6 * $container-width);
+      }
+    }
+  }
+
+
+
+  .questions {
+    .container {
+
+      .questions-title {
+        margin-bottom: calc(25 * $container-width);
+      }
+
+      .questions-items {
+        flex-direction: column;
+
+        .accordion-asks {
+          max-width: 100%;
+        }
+
+        .questions-image {
+          width: calc(215 * $container-width);
+          height: calc(215 * $container-width);
         }
       }
     }
