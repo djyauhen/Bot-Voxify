@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   QueryList,
@@ -14,7 +13,6 @@ import {AudioPlayerComponent} from "../../shared/components/audio-player/audio-p
 import {BotItemsService} from "../../shared/services/bot-items.service";
 import {BotItemType} from "../../../../types/bot-item.type";
 import {CarouselComponent, CarouselModule, OwlOptions, SlidesOutputData} from "ngx-owl-carousel-o";
-import {MatExpansionModule} from '@angular/material/expansion';
 import {AccordionAsksComponent} from "../../shared/components/accordion-asks/accordion-asks.component";
 
 @Component({
@@ -26,7 +24,6 @@ import {AccordionAsksComponent} from "../../shared/components/accordion-asks/acc
     NgForOf,
     AudioPlayerComponent,
     CarouselModule,
-    MatExpansionModule,
     AccordionAsksComponent
   ],
   templateUrl: './main.component.html',
