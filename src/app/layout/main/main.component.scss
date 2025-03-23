@@ -1199,6 +1199,8 @@ $container-width: 1200;
   }
 }
 
+
+
 .footer {
   background: rgba(233, 216, 255, 1);
   position: relative;
@@ -1213,6 +1215,7 @@ $container-width: 1200;
       "rights pages";
     grid-template-columns: repeat(2, 1fr);
     gap: 25px 0;
+    background: rgba(233, 216, 255, 1);
 
     .logo {
       grid-area: logo;
@@ -1278,6 +1281,15 @@ $container-width: 1200;
         text-decoration: none;
       }
     }
+  }
+
+  .quiz-bottom-bg {
+    background: rgba(233, 216, 255, 1);
+    position: absolute;
+    bottom: -15px;
+    height: 20px;
+    width: 100%;
+    z-index: -1;
   }
 }
 
