@@ -8,12 +8,15 @@ import {
 } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {NgxMaskDirective} from "ngx-mask";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {AudioPlayerComponent} from "../../shared/components/audio-player/audio-player.component";
 import {BotItemsService} from "../../shared/services/bot-items.service";
 import {BotItemType} from "../../../../types/bot-item.type";
 import {CarouselComponent, CarouselModule, OwlOptions, SlidesOutputData} from "ngx-owl-carousel-o";
 import {AccordionAsksComponent} from "../../shared/components/accordion-asks/accordion-asks.component";
+import {QuestionType} from "../../../../types/question.type";
+import {QuestionsService} from "../../shared/services/questions.service";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-main',
@@ -24,7 +27,9 @@ import {AccordionAsksComponent} from "../../shared/components/accordion-asks/acc
     NgForOf,
     AudioPlayerComponent,
     CarouselModule,
-    AccordionAsksComponent
+    AccordionAsksComponent,
+    NgIf,
+    ReactiveFormsModule
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
@@ -89,11 +94,29 @@ export class MainComponent {
   };
 
   activeIndex = 0;
-
-  readonly panelOpenState = signal(false);
+  questions: QuestionType[] = [];
+  currentStep = 0;
+  isQuizCompleted = false;
+  quizForm: FormGroup;
+  finalForm: FormGroup;
+  botForm: FormGroup;
+  showQuiz: boolean = false;
 
   constructor(private readonly titleService: Title,
-              private readonly botItemsService: BotItemsService) {
+              private readonly botItemsService: BotItemsService,
+              private readonly questionService: QuestionsService,
+              private fb: FormBuilder) {
+    this.quizForm = this.fb.group({});
+    this.finalForm = this.fb.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      telegram: [false],
+      whatsApp: [false],
+      companyRole: ['', Validators.required]
+    });
+    this.botForm = this.fb.group({
+      phone: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
@@ -103,6 +126,17 @@ export class MainComponent {
       .subscribe({
         next: (data) => {
           this.botItems = data as BotItemType[];
+        },
+        error: err => {
+          console.log('Что-то не так')
+        }
+      })
+
+    this.questionService.getQuestions()
+      .subscribe({
+        next: (data) => {
+          this.questions = data as QuestionType[];
+          this.buildQuizForm();
         },
         error: err => {
           console.log('Что-то не так')
@@ -125,4 +159,81 @@ export class MainComponent {
   onSlideTranslated(event: SlidesOutputData) {
     this.activeIndex = event.startPosition ?? 0; // Синхронизируем активный индекс
   }
+
+  protected readonly Number = Number;
+
+  buildQuizForm() {
+    const controls = this.questions.reduce((acc, _, index) => {
+      acc[index] = [null, Validators.required]; // Для каждого вопроса обязателен выбор
+      return acc;
+    }, {} as { [key: number]: any });
+
+    this.quizForm = this.fb.group(controls);
+  }
+
+  nextStep() {
+    if (this.currentStep < this.questions.length - 1) {
+      this.currentStep++;
+    } else {
+      this.currentStep++; // Переход к финальной форме
+    }
+  }
+
+  prevStep() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+    } else {
+      this.showQuiz = false;
+    }
+  }
+
+  onSubmit() {
+    if (this.quizForm.valid && this.finalForm.valid) {
+      const result = {
+        answers: this.quizForm.value,
+        finalForm: this.finalForm.value
+      };
+
+      this.questionService.submitResults(result)
+        .subscribe(
+        (response) => {
+          console.log('Results submitted:', response);
+          this.isQuizCompleted = true;
+          this.quizForm.reset();
+          this.finalForm.reset();
+        },
+        (error) => {
+          console.error('Error submitting results:', error);
+        }
+      );
+    }
+  }
+
+  sendBotForm() {
+    this.questionService.botRequest(this.botForm.value)
+      .subscribe(
+        (response) => {
+          console.log('Results submitted:', response);
+          this.botForm.reset();
+        },
+        (error) => {
+          console.error('Error submitting results:', error);
+        }
+      );
+  }
+
+  goTo(id: string) {
+    const item = document.getElementById(id);
+
+    if (item) {
+      let offsetTop = item.getBoundingClientRect().top + window.scrollY - 30;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  protected readonly String = String;
 }
