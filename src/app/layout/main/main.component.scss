@@ -117,6 +117,27 @@ $container-width: 1200;
           background: linear-gradient(84.45deg, #9E78D6 -2.89%, #C78BF6 41.97%, #DC8ADE 134.45%);
           width: 126px;
           height: 42px;
+          padding: 2px;
+
+          .btn-inside {
+            width: 100%;
+            background: transparent;
+            color: rgba(255,255,255,1);
+            border-radius: 300px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            .btn-inside {
+              background: rgba(255,255,255,1);
+              color: rgba(162, 111, 222, 1);
+            }
+          }
         }
       }
     }
@@ -278,6 +299,17 @@ $container-width: 1200;
     .action-block {
       grid-area: action-block;
       margin-bottom: 15px;
+
+      .btn.action-btn {
+        border: 2px solid rgba(162, 111, 222, 1);
+      }
+
+      &:hover {
+        .btn.action-btn {
+          background: transparent;
+          color: inherit;
+        }
+      }
     }
 
     .first-screen-image {
@@ -1316,6 +1348,11 @@ $container-width: 1200;
           .action-btn {
             width: 81px;
             height: 24px;
+            padding: 1px;
+
+            .btn-inside {
+              height: 22px;
+            }
           }
         }
       }
@@ -1982,6 +2019,10 @@ $container-width: 1200;
             width: calc(81 * $container-width);
             height: calc(24 * $container-width);
             font-size: calc(10 * $container-width);
+
+            .btn-inside {
+              height: calc(22 * $container-width);
+            }
           }
 
           .lang {
