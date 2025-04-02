@@ -619,6 +619,15 @@ $container-width: 1200;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: opacity 1.5s 0.5s ease, transform 1.5s 0.5s ease;
+
+        &.visible {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
 
         .different-name {
           width: 160px;
@@ -638,7 +647,7 @@ $container-width: 1200;
           font-weight: 400;
           font-size: 12px;
           gap: 20px;
-          z-index: -1;
+          z-index: 0;
 
           .different-left {
             position: relative;
@@ -650,19 +659,20 @@ $container-width: 1200;
             height: 50px;
             display: flex;
             align-items: center;
-          }
 
-          .different-left::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border: 2px solid transparent; /* задаём обводку */
-            background: linear-gradient(52.52deg, #FB72A5 4.34%, #FF7A7B 94.21%); /* градиент только для обводки */
-            border-radius: 22px; /* скругление обводки */
-            z-index: -1;
+            &::before {
+              content: '';
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              right: -2px;
+              bottom: -2px;
+              border: 2px solid transparent; /* задаём обводку */
+              background: linear-gradient(52.52deg, #FB72A5 4.34%, #FF7A7B 94.21%); /* градиент только для обводки */
+              border-radius: 22px; /* скругление обводки */
+              z-index: -1;
+            }
+
           }
 
           .different-right {
@@ -676,6 +686,17 @@ $container-width: 1200;
 
           &.last-item {
             border-bottom-right-radius: 20px;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            .different-left {
+
+              &::before {
+                background: linear-gradient(84.45deg, #9E78D6 -2.89%, #C78BF6 41.97%, #DC8ADE 134.45%);
+              }
+            }
           }
         }
       }
@@ -1013,8 +1034,12 @@ $container-width: 1200;
           padding: 20px;
           opacity: 0;
           transform: translateX(-100%);
-          animation: leftToRightSlide 1s ease-in-out forwards;
-          animation-delay: 1s;
+          transition: opacity 1.5s ease, transform 1.5s ease;
+
+          &.visible {
+            transform: translateY(0);
+            opacity: 1;
+          }
 
 
           .road-map-item-angle-bg {
@@ -1052,19 +1077,19 @@ $container-width: 1200;
           }
 
           &.item-1 {
-            animation-delay: 1.5s;
+            transition-delay: 1.5s;
           }
 
           &.item-2 {
-            animation-delay: 2s;
+            transition-delay: 2s;
           }
 
           &.item-3 {
-            animation-delay: 2.5s;
+            transition-delay: 2.5s;
           }
 
           &.item-4 {
-            animation-delay: 3s;
+            transition-delay: 3s;
           }
         }
       }

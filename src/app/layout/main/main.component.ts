@@ -248,6 +248,10 @@ export class MainComponent {
     const coastItems = document.querySelectorAll('.coast-items');
     this.startAnimationUp(coastItems, 'visible');
     // Конец появление текста под road-map-item
+    // Устанавливаем появление текста под road-map-item
+    const differentItems = document.querySelectorAll('.different-item');
+    this.startAnimationUp(differentItems, 'visible');
+    // Конец появление текста под road-map-item
   }
 
   selectCategory(index: number) {
