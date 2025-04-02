@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   QueryList,
-  signal,
   ViewChild,
   ViewChildren
 } from '@angular/core';
@@ -16,7 +15,14 @@ import {CarouselComponent, CarouselModule, OwlOptions, SlidesOutputData} from "n
 import {AccordionAsksComponent} from "../../shared/components/accordion-asks/accordion-asks.component";
 import {QuestionType} from "../../../../types/question.type";
 import {QuestionsService} from "../../shared/services/questions.service";
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {
+  NgxIntlTelInputModule,
+  SearchCountryField,
+  PhoneNumberFormat,
+  NgxIntlTelInputComponent, CountryISO
+} from "ngx-intl-tel-input";
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 
 @Component({
   selector: 'app-main',
@@ -29,7 +35,9 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
     CarouselModule,
     AccordionAsksComponent,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxIntlTelInputModule,
+    BsDropdownModule,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
@@ -38,6 +46,18 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 export class MainComponent {
   @ViewChild('owlCarCard') owlCarCard!: CarouselComponent;
   @ViewChildren('categoryBtn') categoryButtons!: QueryList<ElementRef>;
+
+  @ViewChild('phoneInput', { static: false }) phoneInput!: NgxIntlTelInputComponent;
+
+  phoneForm = new FormGroup({
+    phone: new FormControl('')
+  });
+  SearchCountryField = SearchCountryField;
+  PhoneNumberFormat = PhoneNumberFormat;
+  phoneMask = '(000) 000-00-00'; // Стандартная маска для России
+  phonePlaceholder = '+7 (___) ___-__-__';
+  prefix = '+7';
+  selectedCountryISO: CountryISO = CountryISO.Russia;
 
   advantages = [
     {
@@ -101,6 +121,9 @@ export class MainComponent {
   finalForm: FormGroup;
   botForm: FormGroup;
   showQuiz: boolean = false;
+  private currentAudio: HTMLAudioElement | null = null;
+  private currentPlayerId: string | null = null;
+  dialogPopup: HTMLDialogElement | null = null;
 
   constructor(private readonly titleService: Title,
               private readonly botItemsService: BotItemsService,
@@ -142,12 +165,89 @@ export class MainComponent {
           console.log('Что-то не так')
         }
       })
+
+    this.phoneForm.get('phone')?.valueChanges.subscribe(() => {
+      this.updateMask();
+    });
+  }
+
+  onCountryChange() {
+    setTimeout(() => this.updateMask(), 500);
+
+  }
+
+  updateMask() {
+    const placeholder = this.phoneInput.selectedCountry.placeHolder || '';
+    this.prefix = `+${this.phoneInput.selectedCountry.dialCode}` || '';
+    const placeholderChanged = placeholder.startsWith(this.prefix) ? placeholder.replace(`${this.prefix} `, '') : placeholder;
+    this.phonePlaceholder = placeholderChanged.replace(/\d/g, '*');
+
+    // Создаем маску (заменяем все цифры на '0')
+    this.phoneMask = placeholderChanged.replace(/\d/g, '0');
   }
 
   ngAfterViewInit() {
+    setTimeout(() => this.updateMask(), 500);
+
     // Устанавливаем первый слайд и активную кнопку при инициализации
     this.owlCarCard.to('slide-0');
-    // Класс 'active' уже будет добавлен через привязку [class.active]
+
+
+    // Устанавливаем появление текста под advantages
+    const advantageTextItems = document.querySelectorAll('.advantage-text');
+    this.startAnimationUp(advantageTextItems, 'visible');
+    // Конец появление текста под advantages
+
+    // Устанавливаем появление текста под task-item
+    const taskItems = document.querySelectorAll('.task-item');
+    this.startAnimationUp(taskItems, 'visible');
+    // Конец появление текста под task-item
+
+    // Устанавливаем появление текста под title-block
+    const titleBlock = document.querySelectorAll('.title-block');
+    this.startAnimationUp(titleBlock, 'visible');
+    // Конец появление текста под title-block
+
+    // Устанавливаем появление Изображения
+    const zoomImages = document.querySelectorAll('.zoom-in');
+    this.startAnimationUp(zoomImages, 'zoom-in-active');
+    // Конец появление Изображения
+
+    // Устанавливаем появление текста под title-block
+    const botHelpTextBlock = document.querySelectorAll('.bot-help-text-block');
+    this.startAnimationUp(botHelpTextBlock, 'visible');
+    // Конец появление текста под title-block
+
+    // Устанавливаем появление текста под title-block
+    const roadMapTitleBlock = document.querySelectorAll('.road-map-title');
+    this.startAnimationUp(roadMapTitleBlock, 'visible');
+    // Конец появление текста под title-block
+
+    // Устанавливаем появление текста под title-block
+    const roadMapDescriptionBlock = document.querySelectorAll('.road-map-description');
+    this.startAnimationUp(roadMapDescriptionBlock, 'visible');
+    // Конец появление текста под title-block
+
+    // Устанавливаем появление текста под road-map-items
+    const roadMapItemsBlock = document.querySelectorAll('.road-map-items-block');
+    this.startAnimationUp(roadMapItemsBlock, 'visible');
+    // Конец появление текста под road-map-item
+    // Устанавливаем появление текста под road-map-item
+    const roadMapItems = document.querySelectorAll('.road-map-item');
+    this.startAnimationUp(roadMapItems, 'visible');
+    // Конец появление текста под road-map-item
+    // Устанавливаем появление текста под road-map-item
+    const botCoastTitle = document.querySelectorAll('.bot-coast-title');
+    this.startAnimationUp(botCoastTitle, 'visible');
+    // Конец появление текста под road-map-item
+    // Устанавливаем появление текста под road-map-item
+    const botCoastSubtitle = document.querySelectorAll('.bot-coast-subtitle');
+    this.startAnimationUp(botCoastSubtitle, 'visible');
+    // Конец появление текста под road-map-item
+    // Устанавливаем появление текста под road-map-item
+    const coastItems = document.querySelectorAll('.coast-items');
+    this.startAnimationUp(coastItems, 'visible');
+    // Конец появление текста под road-map-item
   }
 
   selectCategory(index: number) {
@@ -206,7 +306,29 @@ export class MainComponent {
           console.error('Error submitting results:', error);
         }
       );
+    } else {
+      alert('Заполните поля');
     }
+  }
+
+  startAudio(audioSrc: string, playerId: string) {
+    if (this.currentAudio && this.currentPlayerId !== playerId) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+    }
+
+    if (this.currentAudio && this.currentPlayerId === playerId) {
+      if (this.currentAudio.paused) {
+        this.currentAudio.play();
+      } else {
+        this.currentAudio.pause();
+      }
+      return;
+    }
+
+    this.currentAudio = new Audio(audioSrc);
+    this.currentAudio.play();
+    this.currentPlayerId = playerId;
   }
 
   sendBotForm() {
@@ -215,11 +337,17 @@ export class MainComponent {
         (response) => {
           console.log('Results submitted:', response);
           this.botForm.reset();
+          this.dialogPopup = (document.getElementById('dialog-popup') as HTMLDialogElement) ?? null;
+          if (this.dialogPopup) this.dialogPopup.showModal();
         },
         (error) => {
           console.error('Error submitting results:', error);
         }
       );
+  }
+
+  closePopup() {
+    if (this.dialogPopup) this.dialogPopup.close();
   }
 
   goTo(id: string) {
@@ -235,5 +363,27 @@ export class MainComponent {
     }
   }
 
+  startAnimationUp(elements: NodeList, className: string) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(className);
+          observer.unobserve(entry.target); // Отключаем наблюдение после появления
+        }
+      });
+    }, { threshold: 0.4 }); // Порог видимости (50%)
+
+    if (elements) {
+      elements.forEach(el => observer.observe((el as Element)));
+    }
+  }
+
   protected readonly String = String;
+
+  ngOnDestroy() {
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+    }
+  }
 }

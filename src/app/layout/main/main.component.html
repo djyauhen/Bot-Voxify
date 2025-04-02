@@ -4,8 +4,8 @@
       <img src="images/logo.webp" class="logo" alt="Logo" loading="lazy">
       <article class="header-action">
         <button class="lang">
-          <span style="text-decoration: underline">ru</span>
-          <span>
+          <span style="font-weight:600;">ru</span>
+          <span style="display: flex;align-items: center;">
           <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 0.5L6.17982 5.32018C6.08051 5.41949 5.91949 5.41949 5.82018 5.32018L1 0.5" stroke="#28295B"
                   stroke-width="0.833333" stroke-linecap="round"/>
@@ -34,15 +34,99 @@
     </section>
     <section class="info-block">
       <article class="info-block-item">
-        <img src="images/play.webp" alt="Play" class="info-item-image" loading="lazy">
+        <div class="info-item-image" (click)="startAudio('audio/hardwork.mp3', 'block1')">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="20" fill="url(#paint0_linear_136_109)"/>
+            <mask id="mask0_136_109" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40"
+                  height="40">
+              <rect width="40" height="40" rx="20" fill="url(#paint1_linear_136_109)"/>
+            </mask>
+            <g mask="url(#mask0_136_109)">
+              <path
+                d="M27.1111 29.7778C33.5572 25.2828 21.2785 16.7579 24.8889 9.77778C28.1181 3.53458 40 0 40 0V40H0C0 40 6.51792 30.7795 12.8889 28.8889C18.2239 27.3057 22.5464 32.9609 27.1111 29.7778Z"
+                fill="#FFE6E6" fill-opacity="0.1"/>
+            </g>
+            <path
+              d="M16 26.8441V13.1559C16 12.6901 16.5389 12.4311 16.9026 12.7221L25.4577 19.5662C25.7357 19.7886 25.7357 20.2114 25.4577 20.4338L16.9026 27.2779C16.5389 27.5689 16 27.3099 16 26.8441Z"
+              fill="#28295B"/>
+            <defs>
+              <linearGradient id="paint0_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <p class="info-item-text">Информирует и напомнит <br>о мероприятиях</p>
       </article>
       <article class="info-block-item">
-        <img src="images/play.webp" alt="Play" class="info-item-image" loading="lazy">
+        <div class="info-item-image" (click)="startAudio('audio/hardwork.mp3', 'block2')">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="20" fill="url(#paint0_linear_136_109)"/>
+            <mask id="mask0_136_109" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40"
+                  height="40">
+              <rect width="40" height="40" rx="20" fill="url(#paint1_linear_136_109)"/>
+            </mask>
+            <g mask="url(#mask0_136_109)">
+              <path
+                d="M27.1111 29.7778C33.5572 25.2828 21.2785 16.7579 24.8889 9.77778C28.1181 3.53458 40 0 40 0V40H0C0 40 6.51792 30.7795 12.8889 28.8889C18.2239 27.3057 22.5464 32.9609 27.1111 29.7778Z"
+                fill="#FFE6E6" fill-opacity="0.1"/>
+            </g>
+            <path
+              d="M16 26.8441V13.1559C16 12.6901 16.5389 12.4311 16.9026 12.7221L25.4577 19.5662C25.7357 19.7886 25.7357 20.2114 25.4577 20.4338L16.9026 27.2779C16.5389 27.5689 16 27.3099 16 26.8441Z"
+              fill="#28295B"/>
+            <defs>
+              <linearGradient id="paint0_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <p class="info-item-text">Проконсультирует <br>на входящем звонке</p>
       </article>
       <article class="info-block-item">
-        <img src="images/play.webp" alt="Play" class="info-item-image" loading="lazy">
+        <div class="info-item-image" (click)="startAudio('audio/hardwork.mp3', 'block3')">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="20" fill="url(#paint0_linear_136_109)"/>
+            <mask id="mask0_136_109" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40"
+                  height="40">
+              <rect width="40" height="40" rx="20" fill="url(#paint1_linear_136_109)"/>
+            </mask>
+            <g mask="url(#mask0_136_109)">
+              <path
+                d="M27.1111 29.7778C33.5572 25.2828 21.2785 16.7579 24.8889 9.77778C28.1181 3.53458 40 0 40 0V40H0C0 40 6.51792 30.7795 12.8889 28.8889C18.2239 27.3057 22.5464 32.9609 27.1111 29.7778Z"
+                fill="#FFE6E6" fill-opacity="0.1"/>
+            </g>
+            <path
+              d="M16 26.8441V13.1559C16 12.6901 16.5389 12.4311 16.9026 12.7221L25.4577 19.5662C25.7357 19.7886 25.7357 20.2114 25.4577 20.4338L16.9026 27.2779C16.5389 27.5689 16 27.3099 16 26.8441Z"
+              fill="#28295B"/>
+            <defs>
+              <linearGradient id="paint0_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_136_109" x1="1.71264e-06" y1="36" x2="40" y2="5.33333"
+                              gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FB72A5"/>
+                <stop offset="1" stop-color="#FF7A7B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <p class="info-item-text">Обзвонит базу <br>потенциальных клиентов</p>
       </article>
     </section>
@@ -50,11 +134,32 @@
       <article class="action-items" [formGroup]="botForm">
         <section class="action-item">
           <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
-          <input type="text" class="btn action-input" prefix="+7 "
-                 placeholder="+7 (___) ___-__-__" formControlName="phone" mask="(000) 000-00-00">
+          <!-- Основное поле ввода с маской -->
+          <input
+            type="text"
+            class="btn action-input"
+            [placeholder]="phonePlaceholder"
+            formControlName="phone"
+            [mask]="phoneMask"
+          />
+
+          <ngx-intl-tel-input
+            #phoneInput
+            [cssClass]="'btn action-input'"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="true"
+            [separateDialCode]="true"
+            [selectedCountryISO]="selectedCountryISO"
+            [numberFormat]="PhoneNumberFormat.International"
+            (countryChange)="onCountryChange()"
+          ></ngx-intl-tel-input>
         </section>
         <section class="action-item">
-          <button class="btn action-btn" [disabled]="!botForm.valid" (click)="sendBotForm()">Протестировать бота</button>
+          <button class="btn action-btn" [disabled]="!botForm.valid" (click)="sendBotForm()">Протестировать бота
+          </button>
         </section>
       </article>
       <p class="action-block-text">Нажимая на кнопку «Протестировать бота», вы соглашаетесь с <a
@@ -62,7 +167,7 @@
         персональных данных</a></p>
     </section>
     <div class="first-screen-image">
-      <img ngSrc="images/speak.webp" fill priority class="first-screen-image" alt="">
+      <img src="images/speak.webp" width="480" height="445" class="zoom-in" alt="">
     </div>
 
   </article>
@@ -123,7 +228,7 @@
         </section>
       </article>
       <article class="task-block-image">
-        <img ngSrc="images/chat_bot.webp" fill alt="ChatBot">
+        <img src="images/chat_bot.webp" width="330" height="291" class="zoom-in" alt="ChatBot">
       </article>
     </section>
   </article>
@@ -210,8 +315,27 @@
       <article class="action-items" [formGroup]="botForm">
         <section class="action-item">
           <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
-          <input type="text" class="btn action-input" prefix="+7 "
-                 placeholder="+7 (___) ___-__-__" formControlName="phone" mask="(000) 000-00-00">
+
+          <input
+            type="text"
+            class="btn action-input"
+            [placeholder]="phonePlaceholder"
+            formControlName="phone"
+            [mask]="phoneMask"
+          />
+
+          <ngx-intl-tel-input
+            #phoneInput
+            [cssClass]="'btn action-input'"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="true"
+            [separateDialCode]="true"
+            [selectedCountryISO]="selectedCountryISO"
+            [numberFormat]="PhoneNumberFormat.International"
+            (countryChange)="onCountryChange()"
+          ></ngx-intl-tel-input>
         </section>
         <section class="action-item">
           <button class="btn action-btn btn-red" [disabled]="!botForm.valid" (click)="sendBotForm()">
@@ -225,7 +349,7 @@
     </section>
 
     <div class="screen-image">
-      <img ngSrc="images/bot_phone.webp" fill priority class="screen-image" alt="">
+      <img ngSrc="images/bot_phone.webp" fill priority class="screen-image zoom-in" alt="">
     </div>
   </article>
 </section>
@@ -290,7 +414,7 @@
       Мы поможем вам подключить бота к <span class="title-color">любой телефонии</span> и <span class="title-color">любой CRM системе без дополнительных</span>
       платежей
     </h2>
-    <section class="bot-help-image"></section>
+    <section class="bot-help-image zoom-in"></section>
     <section class="bot-help-text-block">
       <article class="inner">
         <p class="bot-help-text-title">Ваши Voxify боты будут иметь:</p>
@@ -324,14 +448,14 @@
         <img src="images/voice.webp" alt="Voice" loading="lazy">
       </article>
       <article class="road-map-items">
-        <section class="road-map-item">
+        <section class="road-map-item item-1">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">1</p>
           <p class="road-map-item-title">Оставьте заявку</p>
           <p class="road-map-item-text">Наш специалист свяжется с вами
             для подтверждения и уточнения деталей</p>
         </section>
-        <section class="road-map-item">
+        <section class="road-map-item  item-2">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">2</p>
           <p class="road-map-item-title">Погружение <br>
@@ -339,14 +463,14 @@
           <p class="road-map-item-text">После подписания договора, мы анализируем ваши бизнес-процессы и настраиваем
             робота под ваши задачи</p>
         </section>
-        <section class="road-map-item">
+        <section class="road-map-item  item-3">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">3</p>
           <p class="road-map-item-title">Внедрение</p>
           <p class="road-map-item-text">Подключаем бота к вашей телефонии, настраиваем выгрузку отчетов, подключаем к
             реальным разговорам</p>
         </section>
-        <section class="road-map-item">
+        <section class="road-map-item  item-4">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">4</p>
           <p class="road-map-item-title">Контроль</p>
@@ -400,8 +524,6 @@
     </section>
 
     <p class="coast-text">Данные тарифы отражают стоимость телефонных разговоров.</p>
-    <p class="coast-text">Стоимость создания бота оплачивается отдельно и может составлять от 10 000 до 100 000 руб в
-      зависимости от сложности.</p>
   </article>
 </section>
 
@@ -413,7 +535,7 @@
 
     <section class="questions-items">
       <app-accordion-asks class="accordion-asks"></app-accordion-asks>
-      <article class="questions-image">
+      <article class="questions-image zoom-in">
         <img ngSrc="images/bot_phone.webp" fill alt="">
       </article>
     </section>
@@ -499,8 +621,30 @@
             </div>
           </div>
           <div class="form-group">
-            <input class="text-input" id="phone" formControlName="phone" prefix="+7 "
-                   placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">
+            <div class="tel-input-block">
+              <ngx-intl-tel-input
+                #phoneInput
+                [cssClass]="'btn action-input'"
+                [enableAutoCountrySelect]="true"
+                [enablePlaceholder]="true"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                [selectFirstCountry]="true"
+                [separateDialCode]="true"
+                [selectedCountryISO]="selectedCountryISO"
+                [numberFormat]="PhoneNumberFormat.International"
+                (countryChange)="onCountryChange()"
+              ></ngx-intl-tel-input>
+              <input
+                type="text"
+                class="text-input telephone"
+                [placeholder]="phonePlaceholder"
+                formControlName="phone"
+                [mask]="phoneMask"
+              />
+            </div>
+
+<!--            <input class="text-input" id="phone" formControlName="phone" prefix="+7 "-->
+<!--                   placeholder="+7 (___) ___-__-__" mask="(000) 000-00-00">-->
             <div *ngIf="finalForm.get('phone')?.touched && finalForm.get('phone')?.invalid" class="error">
               Телефон обязателен
             </div>
@@ -611,7 +755,7 @@
       <h2 class="title">Спасибо! <br>
         Мы получили вашу заявку, <br>
         скоро менеджер свяжется с вами</h2>
-      <img src="images/checked.webp" alt="Checked">
+      <img src="images/checked.webp" class="jump-anim" alt="Checked">
     </div>
   </article>
 </section>
@@ -645,3 +789,17 @@
   </article>
   <div class="quiz-bottom-bg"></div>
 </footer>
+
+<dialog id="dialog-popup" #dialogPopup>
+  <div class="container">
+    <div class="close-btn" (click)="closePopup()">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L16 16M31 31L16 16M16 16L1 31L31 1" stroke="white" stroke-width="1.71429" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2 class="title">Спасибо! <br>
+      В течение 20 секунд Вам перезвонит наш бот
+    </h2>
+    <img src="images/checked.webp" class="jump-anim" alt="Checked">
+  </div>
+</dialog>
