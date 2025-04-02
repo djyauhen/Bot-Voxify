@@ -922,12 +922,56 @@ $container-width: 1200;
       max-width: 1080px;
       width: 100%;
       height: 229px;
-      background-image: url("../../../../public/images/bot-road.webp");
-      background-size: contain;
       margin-bottom: 20px;
-      background-repeat: no-repeat;
-      background-position: left center;
       @extend .zoom-in;
+
+      img {
+        width: 100%;
+      }
+
+      .bot-bg-image-main {
+        position: relative;
+        top: 28px;
+        left: 55px;
+        max-width: 864px;
+      }
+
+      .bot-bg-image-first {
+        position: absolute;
+        top: 28px;
+        left: 0;
+        max-width: 81px;
+      }
+
+      .bot-bg-image-second {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 135px);
+        max-width: 156px;
+      }
+
+      .bot-bg-image-third {
+        position: absolute;
+        top: 0;
+        right: 177px;
+        max-width: 112px;
+      }
+
+      .bot-bg-image-four {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 157px;
+      }
+
+      .zoom-anim {
+        transform: scale(1);
+        transition: transform 0.5s ease-in;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
     }
 
     .bot-help-text-block {
@@ -1612,7 +1656,6 @@ dialog#dialog-popup {
 
 @media screen and (max-width: 1199px) {
 
-
   :host ::ng-deep {
     .selected-dial-code {
       font-size: 10px;
@@ -2010,44 +2053,68 @@ dialog#dialog-popup {
       .bot-help-image {
         height: 146px;
         margin-bottom: 10px;
-      }
 
-      .bot-help-text-block {
-        padding: 1px; /* толщина границы */
-        border-radius: 15px;
-        max-width: 470px;
-
-      }
-
-      .bot-help-text-block > .inner {
-        padding: 9px;
-        border-radius: 14px; /* чуть меньше внешнего из-за толщины границы */
-
-        .bot-help-text-title {
-          font-size: 10px;
-          margin-bottom: 5px;
+        .bot-bg-image-main {
+          position: relative;
+          left: 35px;
+          max-width: 553px;
         }
 
-        ul {
-          font-size: 8px;
-          padding-inline-start: 5px; /* расстояние от края до маркера */
-          margin-bottom: 5px;
-          list-style: none; /* убираем стандартный маркер */
-          li {
-            position: relative;
-            padding-left: 7px; /* расстояние от маркера до текста */
+        .bot-bg-image-first {
+          top: 20px;
+          max-width: 45px;
+        }
 
-            &::before {
-              content: "•"; /* свой маркер, например, точка */
-              position: absolute;
-              left: 0; /* позиция маркера относительно li */
-            }
+        .bot-bg-image-second {
+          left: calc(50% - 85px);
+          max-width: 101px;
+        }
+
+        .bot-bg-image-third {
+          right: 110px;
+          max-width: 71px;
+        }
+
+        .bot-bg-image-four {
+          max-width: 98px;
+        }
+      }
+    }
+
+    .bot-help-text-block {
+      padding: 1px; /* толщина границы */
+      border-radius: 15px;
+      max-width: 470px;
+    }
+
+    .bot-help-text-block > .inner {
+      padding: 9px;
+      border-radius: 14px; /* чуть меньше внешнего из-за толщины границы */
+
+      .bot-help-text-title {
+        font-size: 10px;
+        margin-bottom: 5px;
+      }
+
+      ul {
+        font-size: 8px;
+        padding-inline-start: 5px; /* расстояние от края до маркера */
+        margin-bottom: 5px;
+        list-style: none; /* убираем стандартный маркер */
+        li {
+          position: relative;
+          padding-left: 7px; /* расстояние от маркера до текста */
+
+          &::before {
+            content: "•"; /* свой маркер, например, точка */
+            position: absolute;
+            left: 0; /* позиция маркера относительно li */
           }
         }
+      }
 
-        .bot-help-text-description {
-          font-size: 6px;
-        }
+      .bot-help-text-description {
+        font-size: 6px;
       }
     }
   }
@@ -2329,7 +2396,6 @@ dialog#dialog-popup {
       }
     }
   }
-
 
   dialog#dialog-popup {
     border-radius: 15px;
@@ -2811,7 +2877,51 @@ dialog#dialog-popup {
       .bot-help-image {
         height: calc(266 * $container-width);
         margin-bottom: calc(25 * $container-width);
-        background-image: url("../../../../public/images/bot-road-mob.webp");
+        display: flex;
+        align-items: center;
+
+        .bot-bg-image-main {
+          position: relative;
+          top: 0;
+          left: calc(21 * $container-width);
+          max-width: calc(256 * $container-width);
+          width: calc(256 * $container-width);
+          height: calc(137 * $container-width);
+          background-image: url("../../../../public/images/bot-road-mobile.webp");
+          background-size: contain;
+          background-position: center ;
+          background-repeat: no-repeat;
+
+          img {
+            display: none;
+          }
+        }
+
+        .bot-bg-image-first {
+          position: absolute;
+          top: calc(20 * $container-width);
+          left: 0;
+          max-width: calc(41 * $container-width);
+        }
+
+        .bot-bg-image-second {
+          top: calc(7 * $container-width);
+          left: unset;
+          right: 0;
+          max-width: calc(87 * $container-width);
+        }
+
+        .bot-bg-image-third {
+          top: unset;
+          right: unset;
+          left: 0;
+          bottom: 0;
+          max-width: calc(61 * $container-width);
+        }
+
+        .bot-bg-image-four {
+          max-width: calc(85 * $container-width);
+        }
       }
 
       .bot-help-text-block {
