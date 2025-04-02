@@ -134,7 +134,6 @@
       <article class="action-items" [formGroup]="botForm">
         <section class="action-item">
           <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
-          <!-- Основное поле ввода с маской -->
           <input
             type="text"
             class="btn action-input"
@@ -142,7 +141,6 @@
             formControlName="phone"
             [mask]="phoneMask"
           />
-
           <ngx-intl-tel-input
             #phoneInput
             [cssClass]="'btn action-input'"
@@ -154,7 +152,7 @@
             [separateDialCode]="true"
             [selectedCountryISO]="selectedCountryISO"
             [numberFormat]="PhoneNumberFormat.International"
-            (countryChange)="onCountryChange()"
+            (countryChange)="onCountryChange($event)"
           ></ngx-intl-tel-input>
         </section>
         <section class="action-item">
@@ -334,7 +332,7 @@
             [separateDialCode]="true"
             [selectedCountryISO]="selectedCountryISO"
             [numberFormat]="PhoneNumberFormat.International"
-            (countryChange)="onCountryChange()"
+            (countryChange)="onCountryChange($event)"
           ></ngx-intl-tel-input>
         </section>
         <section class="action-item">
@@ -349,7 +347,7 @@
     </section>
 
     <div class="screen-image">
-      <img ngSrc="images/bot_phone.webp" loading="lazy" fill priority class="screen-image zoom-in" alt="">
+      <img ngSrc="images/bot_phone.webp" loading="lazy" fill class="screen-image zoom-in" alt="">
     </div>
   </article>
 </section>
@@ -648,7 +646,7 @@
                 [separateDialCode]="true"
                 [selectedCountryISO]="selectedCountryISO"
                 [numberFormat]="PhoneNumberFormat.International"
-                (countryChange)="onCountryChange()"
+                (countryChange)="onCountryChange($event)"
               ></ngx-intl-tel-input>
               <input
                 type="text"

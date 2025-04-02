@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import {NgxMaskDirective} from "ngx-mask";
-import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {AudioPlayerComponent} from "../../shared/components/audio-player/audio-player.component";
 import {BotItemsService} from "../../shared/services/bot-items.service";
 import {BotItemType} from "../../../../types/bot-item.type";
@@ -38,6 +38,7 @@ import {BsDropdownModule} from "ngx-bootstrap/dropdown";
     ReactiveFormsModule,
     NgxIntlTelInputModule,
     BsDropdownModule,
+    NgClass,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
@@ -171,9 +172,10 @@ export class MainComponent {
     });
   }
 
-  onCountryChange() {
-    setTimeout(() => this.updateMask(), 500);
+  onCountryChange(event: any) {
 
+    setTimeout(() => this.updateMask(), 500);
+    setTimeout(() => this.selectedCountryISO = event.iso2, 500);
   }
 
   updateMask() {
