@@ -9,13 +9,13 @@ $container-width: 1200;
   ngx-intl-tel-input {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 53.5%;
   }
 
   .test-order, .quiz {
 
     .iti__arrow {
-      border-top-color: rgb(255,255,255);
+      border-top-color: rgb(255, 255, 255);
     }
   }
 
@@ -84,7 +84,7 @@ $container-width: 1200;
     position: relative;
 
     ngx-intl-tel-input {
-      top: 5px;
+      top: 12px;
     }
 
     .selected-dial-code {
@@ -1694,6 +1694,14 @@ dialog#dialog-popup {
         top: -6px;
       }
     }
+
+    ngx-intl-tel-input {
+      top: 49.5%;
+    }
+
+    .quiz .iti__flag-container {
+      top: -19px;
+    }
   }
 
   .btn {
@@ -2452,7 +2460,12 @@ dialog#dialog-popup {
 
   :host ::ng-deep {
     ngx-intl-tel-input {
-      top: 56%;
+      top: unset;
+      bottom: 0;
+      height: calc(22 * $container-width);
+    }
+    .iti {
+      height: calc(22 * $container-width);
     }
 
     .iti__arrow {
@@ -2473,12 +2486,26 @@ dialog#dialog-popup {
     .tel-input-block {
       .selected-dial-code {
         font-size: calc(10 * $container-width);
-        top: calc(-7.2 * $container-width);
+        top: calc(-6.2 * $container-width);
       }
     }
 
     .iti__country-list .iti__country {
       font-size: calc(10 * $container-width);
+    }
+
+    .iti__flag-container {
+      position: absolute;
+      bottom: calc(10 * $container-width);
+      padding: 0;
+      top: unset;
+    }
+
+    .quiz .iti__flag-container {
+      top: unset;
+    }
+    .quiz .iti {
+      bottom: -20%;
     }
   }
 
@@ -2508,7 +2535,8 @@ dialog#dialog-popup {
 
     .action-item {
       .action-input {
-        padding-left: calc(45 * $container-width);
+        border-width: calc(2 * $container-width);
+        padding: calc(10 * $container-width) calc(10 * $container-width) calc(10 * $container-width) calc(45 * $container-width);
       }
 
       .btn {
@@ -2827,7 +2855,6 @@ dialog#dialog-popup {
           }
 
           .btn, .btn::placeholder {
-            height: auto;
             border-radius: calc(30 * $container-width);
             font-size: calc(10 * $container-width);
           }
@@ -3201,7 +3228,8 @@ dialog#dialog-popup {
         margin-bottom: calc(15 * $container-width);
 
         .tel-input-block ngx-intl-tel-input {
-          top: calc(7 * $container-width);
+          bottom: 0;
+          top: unset;
         }
 
         .text-input {
