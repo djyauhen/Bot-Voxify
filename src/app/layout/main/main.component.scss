@@ -306,6 +306,7 @@ $container-width: 1200;
     .btn-white {
       background: rgba(255, 255, 255, 1);
       padding: 2px;
+      transition: box-shadow 0.5s ease-in-out;
 
       .btn-inside {
         border-radius: 30px;
@@ -320,7 +321,6 @@ $container-width: 1200;
 
       &:hover {
         box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.5);
-        animation: fadeToGradient 0.5s ease forwards; /* Анимация фона */
       }
     }
 
@@ -2744,11 +2744,11 @@ dialog#dialog-popup {
 
       .categories-items {
         .categories-btn {
-          gap: calc(3 * $container-width);
+          gap: calc(2.5 * $container-width);
 
           .category-btn {
-            padding: calc(5 * $container-width) calc(10 * $container-width);
-            font-size: calc(5 * $container-width);
+            padding: calc(5 * $container-width);
+            font-size: calc(7 * $container-width);
           }
         }
 
@@ -2823,7 +2823,7 @@ dialog#dialog-popup {
 
 
           ul {
-            font-size: calc(6 * $container-width);
+            font-size: calc(7 * $container-width);
             padding-inline-start: calc(5 * $container-width);
             margin-bottom: calc(5 * $container-width);
 
@@ -2833,7 +2833,7 @@ dialog#dialog-popup {
           }
 
           .bot-help-text-description {
-            font-size: calc(5 * $container-width);
+            font-size: calc(6 * $container-width);
           }
 
           .bot-help-text-title {
@@ -2855,7 +2855,7 @@ dialog#dialog-popup {
       .road-map-description {
         max-width: calc(240 * $container-width);
         margin: 0 auto calc(15 * $container-width);
-        font-size: calc(6 * $container-width);
+        font-size: calc(8 * $container-width);
         text-align: center;
       }
 
@@ -2866,7 +2866,7 @@ dialog#dialog-popup {
           top: calc(15 * $container-width);
 
           img {
-            width: calc(125 * $container-width);
+            width: calc(135 * $container-width);
           }
 
           &.road-map-image-bottom {
@@ -2882,12 +2882,12 @@ dialog#dialog-popup {
           margin-left: calc(71 * $container-width);
           background-image: url("../../../../public/images/union-vert.webp");
           flex-direction: column;
-          gap: calc(10 * $container-width);
+          gap: calc(10.3 * $container-width);
           width: fit-content;
 
           .road-map-item {
-            width: calc(161 * $container-width);
-            height: calc(94 * $container-width);
+            width: calc(171 * $container-width);
+            height: calc(99 * $container-width);
             border-radius: calc(15 * $container-width);
             padding: calc(10 * $container-width);
 
@@ -2897,7 +2897,7 @@ dialog#dialog-popup {
             }
 
             .road-map-item-text {
-              font-size: calc(6 * $container-width);
+              font-size: calc(7 * $container-width);
             }
 
             .road-map-item-angle-bg {
@@ -2924,7 +2924,7 @@ dialog#dialog-popup {
       }
 
       .bot-coast-subtitle {
-        font-size: calc(6 * $container-width);
+        font-size: calc(8 * $container-width);
         text-align: center;
       }
 
@@ -2936,14 +2936,14 @@ dialog#dialog-popup {
           height: calc(72 * $container-width);
 
           .coast-item-amount {
-            font-size: calc(5 * $container-width);
+            font-size: calc(6 * $container-width);
             margin-bottom: calc(2 * $container-width);
             margin-left: calc(3 * $container-width);
           }
 
           .coast-item-time {
             padding: calc(2 * $container-width) calc(3 * $container-width);
-            font-size: calc(5 * $container-width);
+            font-size: calc(6 * $container-width);
             border-radius: calc(9 * $container-width);
           }
 
@@ -2956,7 +2956,7 @@ dialog#dialog-popup {
 
       .coast-text {
         text-align: center;
-        font-size: calc(6 * $container-width);
+        font-size: calc(7 * $container-width);
       }
     }
   }
@@ -3003,10 +3003,6 @@ dialog#dialog-popup {
           width: calc(257 * $container-width);
           margin-bottom: calc(25 * $container-width);
         }
-
-        .action-items .action-item .btn {
-          width: calc(225 * $container-width);
-        }
       }
 
       .question-number {
@@ -3020,7 +3016,7 @@ dialog#dialog-popup {
       }
 
       .options {
-        gap: calc(15 * $container-width);
+        gap: calc(10 * $container-width);
         margin-bottom: calc(25 * $container-width);
 
         .option {
@@ -3081,6 +3077,16 @@ dialog#dialog-popup {
 
         img {
           width: calc(110 * $container-width);
+        }
+      }
+
+
+      .action-items {
+        flex-direction: row;
+        justify-content: center;
+
+        .action-item .btn {
+          width: calc(145 * $container-width);
         }
       }
     }
