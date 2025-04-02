@@ -172,10 +172,8 @@ export class MainComponent {
     });
   }
 
-  onCountryChange(event: any) {
-
+  onCountryChange(event: any) {this.selectedCountryISO = event.iso2;
     setTimeout(() => this.updateMask(), 500);
-    setTimeout(() => this.selectedCountryISO = event.iso2, 500);
   }
 
   updateMask() {
