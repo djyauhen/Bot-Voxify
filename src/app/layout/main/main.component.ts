@@ -123,7 +123,7 @@ export class MainComponent {
   botForm: FormGroup;
   showQuiz: boolean = false;
   private currentAudio: HTMLAudioElement | null = null;
-  private currentPlayerId: string | null = null;
+  public currentPlayerId: string | null = null;
   dialogPopup: HTMLDialogElement | null = null;
 
   constructor(private readonly titleService: Title,
@@ -325,6 +325,7 @@ export class MainComponent {
       if (this.currentAudio.paused) {
         this.currentAudio.play();
       } else {
+        this.currentPlayerId = null;
         this.currentAudio.pause();
       }
       return;
