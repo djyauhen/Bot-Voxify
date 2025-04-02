@@ -2562,6 +2562,7 @@ dialog#dialog-popup {
 
 
         .advantage-icon {
+          max-width: calc(30 * $container-width);
           width: calc(30 * $container-width);
           height: calc(30 * $container-width);
           text-align: center;
