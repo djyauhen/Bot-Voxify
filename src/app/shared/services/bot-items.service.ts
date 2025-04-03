@@ -51,13 +51,6 @@ export class BotItemsService {
       trackSrc: 'audio/stal_bolshim.mp3'
     },
     {
-      category: 'Подтверждение покупки',
-      name: 'название',
-      imageSrc: 'images/shop.webp',
-      taskCompleted: 'Повысили доходность <br> от сдачи по записи',
-      trackSrc: 'audio/stal_bolshim.mp3'
-    },
-    {
       category: 'HR',
       name: 'название',
       imageSrc: 'images/hr.webp',
