@@ -117,7 +117,7 @@
     gap: calc(3 * $container-width);
 
     .accordion-item {
-      border-radius: calc(12 * $container-width);
+      border-radius: calc(15 * $container-width);
 
       .accordion-header {
         padding: calc(1 * $container-width);
@@ -128,7 +128,7 @@
           padding: calc(9 * $container-width);
 
           h3 {
-            font-size: calc(9 * $container-width);
+            font-size: calc(12 * $container-width);
           }
 
           .accordion-arrow {
@@ -141,7 +141,7 @@
       .accordion-content {
         p {
           padding: calc(5 * $container-width) calc(10 * $container-width);
-          font-size: calc(8.5 * $container-width);
+          font-size: calc(10 * $container-width);
         }
       }
     }
