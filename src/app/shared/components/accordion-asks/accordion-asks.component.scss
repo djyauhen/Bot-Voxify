@@ -117,15 +117,17 @@
     gap: calc(3 * $container-width);
 
     .accordion-item {
-      border-radius: calc(15 * $container-width);
+      border-radius: calc(21 * $container-width);
 
       .accordion-header {
         padding: calc(1 * $container-width);
         border-radius: calc(50 * $container-width);
+        height: calc(44 * $container-width);
 
         .accordion-header-container {
           border-radius: calc(49 * $container-width);
           padding: calc(9 * $container-width);
+          height: calc(42 * $container-width);
 
           h3 {
             font-size: calc(12 * $container-width);
@@ -143,6 +145,10 @@
           padding: calc(5 * $container-width) calc(10 * $container-width);
           font-size: calc(10 * $container-width);
         }
+      }
+
+      &.active {
+        border-radius: calc(21 * $container-width) calc(21 * $container-width) calc(10 * $container-width) calc(10 * $container-width);
       }
     }
   }
