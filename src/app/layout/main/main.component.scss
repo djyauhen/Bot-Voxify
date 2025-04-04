@@ -23,6 +23,7 @@ $container-width: 1200;
     border-radius: 6px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-height: 250px;
+    min-width: 250px !important;
     overflow-y: auto;
   }
 
@@ -30,11 +31,22 @@ $container-width: 1200;
   .iti__country-list .iti__country {
     padding: 8px 12px;
     font-size: 10px;
+  }
 
-    .iti__flag-box {
-      display: none;
-      width: 0;
-    }
+  .iti__flag-box, .iti__country-name {
+    margin: 0 5px;
+  }
+
+  .iti__dial-code {
+    margin-right: 0;
+  }
+
+  input#country-search-box {
+    height: 25px;
+  }
+
+  .iti__country-list {
+    max-height: 210px;
   }
 
   .iti__selected-dial-code {
@@ -60,10 +72,6 @@ $container-width: 1200;
 
   .iti__arrow {
     margin-left: 1px;
-  }
-
-  .iti__flag {
-    display: none;
   }
 
   .selected-dial-code {
@@ -311,7 +319,7 @@ $container-width: 1200;
     .action-input {
       border-radius: 30px;
       border: 2px solid rgba(162, 111, 222, 1);
-      padding: 15px 15px 15px 65px;
+      padding: 15px 15px 15px 85px;
       font-weight: 600;
       font-size: 16px;
       line-height: 100%;
@@ -1106,7 +1114,7 @@ $container-width: 1200;
           box-sizing: border-box;
           padding: 20px;
           opacity: 0;
-          transform: translateX(-100%);
+          transform: translateX(-70%);
           transition: opacity 1.5s ease, transform 1.5s ease;
 
           &.visible {
@@ -1735,7 +1743,7 @@ dialog#dialog-popup {
       }
 
       .action-input {
-        padding: 10px 10px 10px 45px;
+        padding: 10px 10px 10px 65px;
         font-weight: 600;
         font-size: 10px;
       }
@@ -2462,13 +2470,13 @@ dialog#dialog-popup {
 @media screen and (max-width: 767px) {
   $container-width: calc(100vw / 320);
 
-
   :host ::ng-deep {
     ngx-intl-tel-input {
       top: unset;
       bottom: 0;
       height: calc(22 * $container-width);
     }
+
     .iti {
       height: calc(22 * $container-width);
     }
@@ -2488,6 +2496,21 @@ dialog#dialog-popup {
     }
 
 
+    .iti__dropdown-content {
+      max-height: calc(200 * $container-width);
+      min-width: calc(250 * $container-width) !important;
+      overflow-y: auto;
+    }
+
+    .iti__country-list {
+      max-height: calc(170 * $container-width);
+    }
+
+    input#country-search-box {
+      height: calc(25 * $container-width);
+    }
+
+
     .tel-input-block {
       .selected-dial-code {
         font-size: calc(10 * $container-width);
@@ -2495,7 +2518,7 @@ dialog#dialog-popup {
       }
     }
 
-    .iti__country-list .iti__country {
+    .iti__country-list .iti__country, input#country-search-box {
       font-size: calc(10 * $container-width);
     }
 
@@ -2509,6 +2532,7 @@ dialog#dialog-popup {
     .quiz .iti__flag-container {
       top: unset;
     }
+
     .quiz .iti {
       bottom: -20%;
     }
@@ -2520,7 +2544,7 @@ dialog#dialog-popup {
   }
 
   .title {
-    font-size: calc(14 * $container-width);
+    font-size: calc(16 * $container-width);
     text-align: center;
   }
 
@@ -2541,7 +2565,7 @@ dialog#dialog-popup {
     .action-item {
       .action-input {
         border-width: calc(2 * $container-width);
-        padding: calc(10 * $container-width) calc(10 * $container-width) calc(10 * $container-width) calc(45 * $container-width);
+        padding: calc(10 * $container-width) calc(10 * $container-width) calc(10 * $container-width) calc(65 * $container-width);
       }
 
       .btn {
@@ -2581,7 +2605,7 @@ dialog#dialog-popup {
           gap: calc(10 * $container-width);
 
           .lang {
-            font-size: calc(10 * $container-width);
+            font-size: calc(12 * $container-width);
             gap: calc(3 * $container-width);
           }
 
@@ -2634,14 +2658,14 @@ dialog#dialog-popup {
       .title-block {
         margin-bottom: calc(15 * $container-width);
         text-align: center;
-        max-width: calc(200 * $container-width);
+        max-width: calc(250 * $container-width);
 
         .main-title {
-          font-size: calc(26 * $container-width);
+          font-size: calc(28 * $container-width);
         }
 
         .subtitle {
-          font-size: calc(10 * $container-width);
+          font-size: calc(12 * $container-width);
         }
       }
 
@@ -2660,14 +2684,14 @@ dialog#dialog-popup {
           }
 
           .info-item-text {
-            font-size: calc(6 * $container-width);
+            font-size: calc(8 * $container-width);
           }
         }
       }
 
       .action-block .action-items .action-item {
         .action-item-text {
-          font-size: calc(6 * $container-width);
+          font-size: calc(8 * $container-width);
         }
       }
 
@@ -2687,15 +2711,17 @@ dialog#dialog-popup {
     }
 
     .advantage-items {
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       max-height: calc(320 * $container-width);
       max-width: calc(250 * $container-width);
-      gap: calc(15 * $container-width) calc(50 * $container-width);
-      align-items: center;
+      gap: calc(15 * $container-width) calc(30 * $container-width);
+      align-items: flex-start;
+      justify-items: center;
       margin: 0 auto;
 
       .advantage-item {
-        width: calc(100 * $container-width);
+        width: calc(110 * $container-width);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2711,7 +2737,7 @@ dialog#dialog-popup {
 
         .advantage-text {
           text-align: center;
-          font-size: calc(8 * $container-width);
+          font-size: calc(9 * $container-width);
         }
       }
     }
@@ -2721,7 +2747,7 @@ dialog#dialog-popup {
     padding-bottom: calc(11 * $container-width);
 
     .tasks-title {
-      max-width: calc(170 * $container-width);
+      max-width: calc(200 * $container-width);
       text-align: center;
       margin: 0 auto calc(25 * $container-width);
     }
@@ -2731,10 +2757,12 @@ dialog#dialog-popup {
       flex-direction: column;
 
       .task-items {
-        gap: calc(13 * $container-width) calc(43 * $container-width);
+        gap: calc(15 * $container-width) calc(27 * $container-width);
+        height: calc(134 * $container-width);
+        background-position: center;
 
         .task-item {
-          padding: calc(5 * $container-width) calc(10 * $container-width) calc(10 * $container-width);
+          padding: calc(3 * $container-width) calc(10 * $container-width);
 
 
           .task-item-number {
@@ -2743,7 +2771,7 @@ dialog#dialog-popup {
           }
 
           .task-item-text {
-            font-size: calc(6 * $container-width);
+            font-size: calc(7 * $container-width);
           }
         }
       }
@@ -2776,17 +2804,17 @@ dialog#dialog-popup {
 
         .different-name {
           width: calc(55 * $container-width);
-          font-size: calc(5 * $container-width);
+          font-size: calc(5.5 * $container-width);
         }
 
         .different-text-block {
           border-radius: calc(15 * $container-width) 0 0 calc(15 * $container-width);
           height: calc(44 * $container-width);
-          font-size: calc(6 * $container-width);
+          font-size: calc(6.4 * $container-width);
           gap: calc(10 * $container-width);
 
           .different-left {
-            padding: calc(10 * $container-width) calc(5 * $container-width);
+            padding: calc(3 * $container-width) calc(1.6 * $container-width);
             width: calc(110 * $container-width);
             height: calc(42 * $container-width);
             text-align: center;
@@ -2818,7 +2846,7 @@ dialog#dialog-popup {
     }
 
     .bot-description {
-      font-size: calc(6 * $container-width);
+      font-size: calc(7.5 * $container-width);
     }
   }
 
@@ -2846,7 +2874,7 @@ dialog#dialog-popup {
         margin-bottom: calc(25 * $container-width);
 
         .test-order-subtitle {
-          font-size: calc(6 * $container-width);
+          font-size: calc(7 * $container-width);
           text-align: center;
         }
       }
@@ -3008,7 +3036,7 @@ dialog#dialog-popup {
 
 
           ul {
-            font-size: calc(7 * $container-width);
+            font-size: calc(8 * $container-width);
             padding-inline-start: calc(5 * $container-width);
             margin-bottom: calc(5 * $container-width);
 
@@ -3018,11 +3046,11 @@ dialog#dialog-popup {
           }
 
           .bot-help-text-description {
-            font-size: calc(6 * $container-width);
+            font-size: calc(7 * $container-width);
           }
 
           .bot-help-text-title {
-            font-size: calc(10 * $container-width);
+            font-size: calc(11 * $container-width);
             margin-bottom: calc(5 * $container-width);
           }
         }
@@ -3038,9 +3066,9 @@ dialog#dialog-popup {
       }
 
       .road-map-description {
-        max-width: calc(240 * $container-width);
+        max-width: calc(280 * $container-width);
         margin: 0 auto calc(15 * $container-width);
-        font-size: calc(8 * $container-width);
+        font-size: calc(9.5 * $container-width);
         text-align: center;
       }
 
@@ -3064,25 +3092,25 @@ dialog#dialog-popup {
         }
 
         .road-map-items {
-          margin-left: calc(71 * $container-width);
+          margin: 0 auto;
           background-image: url("../../../../public/images/union-vert.webp");
           flex-direction: column;
-          gap: calc(10.3 * $container-width);
+          gap: calc(13.5 * $container-width);
           width: fit-content;
 
           .road-map-item {
-            width: calc(171 * $container-width);
-            height: calc(99 * $container-width);
+            width: calc(210 * $container-width);
+            height: calc(120 * $container-width);
             border-radius: calc(15 * $container-width);
             padding: calc(10 * $container-width);
 
             .road-map-item-title {
-              font-size: calc(10 * $container-width);
+              font-size: calc(12 * $container-width);
               margin-bottom: calc(3 * $container-width);
             }
 
             .road-map-item-text {
-              font-size: calc(7 * $container-width);
+              font-size: calc(8 * $container-width);
             }
 
             .road-map-item-angle-bg {
@@ -3217,10 +3245,10 @@ dialog#dialog-popup {
               max-width: calc(271 * $container-width);
 
               ::ng-deep .quiz-answer {
-                font-size: calc(8 * $container-width);
+                font-size: calc(9.6 * $container-width);
 
                 .quiz-subanswer {
-                  font-size: calc(6 * $container-width);
+                  font-size: calc(7 * $container-width);
                 }
               }
             }
@@ -3243,7 +3271,7 @@ dialog#dialog-popup {
 
 
           &.telephone {
-            padding-left: calc(35 * $container-width);
+            padding-left: calc(55 * $container-width);
           }
         }
 
@@ -3254,7 +3282,7 @@ dialog#dialog-popup {
         .checkbox-input {
 
           span {
-            font-size: calc(5 * $container-width);
+            font-size: calc(6.5 * $container-width);
           }
         }
       }
@@ -3320,7 +3348,7 @@ dialog#dialog-popup {
         }
 
         .all-rights-subtitle {
-          font-size: calc(4 * $container-width);
+          font-size: calc(6 * $container-width);
         }
       }
 
@@ -3328,7 +3356,7 @@ dialog#dialog-popup {
         justify-content: unset;
 
         .page {
-          font-size: calc(6 * $container-width);
+          font-size: calc(7 * $container-width);
 
           &:last-child {
             margin-left: calc(56 * $container-width);

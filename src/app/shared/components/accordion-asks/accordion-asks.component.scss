@@ -128,7 +128,7 @@
           padding: calc(9 * $container-width);
 
           h3 {
-            font-size: calc(8 * $container-width);
+            font-size: calc(9 * $container-width);
           }
 
           .accordion-arrow {
@@ -141,7 +141,7 @@
       .accordion-content {
         p {
           padding: calc(5 * $container-width) calc(10 * $container-width);
-          font-size: calc(7 * $container-width);
+          font-size: calc(8 * $container-width);
         }
       }
     }

@@ -57,7 +57,7 @@
     </section>
     <section class="action-block">
       <article class="action-items" [formGroup]="botForm">
-        <section class="action-item">
+        <section class="action-item" #telContainer>
           <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
           <input
             type="text"
@@ -69,14 +69,16 @@
           <ngx-intl-tel-input
             #phoneInput
             [cssClass]="'btn action-input'"
-            [enableAutoCountrySelect]="true"
+            [enableAutoCountrySelect]="false"
             [enablePlaceholder]="true"
+            [searchCountryPlaceholder]="'Поиск страны'"
             [searchCountryFlag]="true"
-            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-            [selectFirstCountry]="true"
+            [searchCountryField]="[SearchCountryField.All]"
+            [selectFirstCountry]="false"
             [separateDialCode]="true"
             [selectedCountryISO]="selectedCountryISO"
             [numberFormat]="PhoneNumberFormat.International"
+            (input)="onSearchInput($event)"
             (countryChange)="onCountryChange($event)"
           ></ngx-intl-tel-input>
         </section>
@@ -109,7 +111,7 @@
         <section class="advantage-icon">
           <img ngSrc="images/icons/{{advantage.image}}" loading="lazy" fill alt="Icon" class="advantage-icon-image">
         </section>
-        <p class="advantage-text" [innerHtml]="advantage.description"></p>
+        <p class="advantage-text visible-off" [innerHtml]="advantage.description"></p>
       </article>
     </section>
   </article>
@@ -120,21 +122,21 @@
     <h2 class="title tasks-title">Какие задачи можно поручить боту?</h2>
     <section class="task-block">
       <article class="task-items">
-        <section class="task-item">
+        <section class="task-item visible-off">
           <p class="task-item-number">01</p>
           <p class="task-item-text">
             <span class="lilac">Отвечать</span> на
             входящие звонки <br>и принимать заказы
           </p>
         </section>
-        <section class="task-item">
+        <section class="task-item visible-off">
           <p class="task-item-number">03</p>
           <p class="task-item-text">
             <span class="lilac">Подтверждать/отклонять</span> заказы, <br>
             <span class="lilac">напоминать</span> о незавершенной покупке
           </p>
         </section>
-        <section class="task-item">
+        <section class="task-item visible-off">
           <p class="task-item-number">02</p>
           <p class="task-item-text">
             <span class="lilac">Прозванивать</span> клиентов <br>
@@ -142,7 +144,7 @@
             базовых возражений
           </p>
         </section>
-        <section class="task-item">
+        <section class="task-item visible-off">
           <p class="task-item-number">04</p>
           <p class="task-item-text">
             <span class="lilac">Проводить</span> опросы, <span class="lilac">информировать</span> <br>
@@ -159,12 +161,12 @@
 
 <section class="differents">
   <article class="container">
-    <section class="title-block">
+    <section class="title-block visible-off">
       <h2 class="title differents-title">Умный голосовой бот</h2>
       <h2 class="title differents-title">Робот IVR</h2>
     </section>
     <section class="different-items">
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Интеллект</p>
         <section class="different-text-block first-item">
           <p class="different-left">Понимает естественный язык и мгновенно выдает нужный ответ, поддерживая плавный
@@ -173,7 +175,7 @@
             понимает сложные запросы</p>
         </section>
       </article>
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Гибкость</p>
         <section class="different-text-block">
           <p class="different-left">Может адаптироваться к разным диалогам, обучается на
@@ -181,14 +183,14 @@
           <p class="different-right">Функционирует по фиксированному меню, не обучается</p>
         </section>
       </article>
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Способ общения</p>
         <section class="different-text-block">
           <p class="different-left">Разговаривает естественно, распознает смысл фраз</p>
           <p class="different-right">Работает по кнопочным или голосовым командам (например, «нажмите 1»)</p>
         </section>
       </article>
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Скорость взаимодействия</p>
         <section class="different-text-block">
           <p class="different-left">Может понимать речь в реальном времени <br>
@@ -196,7 +198,7 @@
           <p class="different-right">Часто требует выбора вариантов и пауз между ответами</p>
         </section>
       </article>
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Применение</p>
         <section class="different-text-block">
           <p class="different-left">Помогает в сложных сервисных задачах: <br>
@@ -206,7 +208,7 @@
             звонков</p>
         </section>
       </article>
-      <article class="different-item">
+      <article class="different-item visible-off">
         <p class="different-name">Интеграция с сервисами</p>
         <section class="different-text-block last-item">
           <p class="different-left">Легко подключается к CRM, чатам, базам данных</p>
@@ -236,7 +238,7 @@
     </section>
     <section class="action-block">
       <article class="action-items" [formGroup]="botForm">
-        <section class="action-item">
+        <section class="action-item" #telContainer2>
           <p class="action-item-text">Я перезвоню в течение 20 сек.</p>
 
           <input
@@ -247,16 +249,20 @@
             [mask]="phoneMask"
           />
 
+
           <ngx-intl-tel-input
-            #phoneInput
+            #phoneInput2
             [cssClass]="'btn action-input'"
-            [enableAutoCountrySelect]="true"
+            [enableAutoCountrySelect]="false"
             [enablePlaceholder]="true"
-            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [searchCountryPlaceholder]="'Поиск страны'"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.All]"
             [selectFirstCountry]="false"
             [separateDialCode]="true"
             [selectedCountryISO]="selectedCountryISO"
             [numberFormat]="PhoneNumberFormat.International"
+            (input)="onSearchInput($event)"
             (countryChange)="onCountryChange($event)"
           ></ngx-intl-tel-input>
         </section>
@@ -272,7 +278,7 @@
     </section>
 
     <div class="screen-image">
-      <img ngSrc="images/bot_phone.webp" loading="lazy" fill class="screen-image zoom-in" alt="">
+      <img src="images/bot_phone.webp" loading="lazy" class="screen-image zoom-in" alt="">
     </div>
   </article>
 </section>
@@ -354,7 +360,7 @@
         <img src="images/four-help-bot-img.webp" loading="lazy" alt="">
       </div>
     </section>
-    <section class="bot-help-text-block">
+    <section class="bot-help-text-block visible-off">
       <article class="inner">
         <p class="bot-help-text-title">Ваши Voxify боты будут иметь:</p>
         <ul>
@@ -371,15 +377,15 @@
 
 <section class="road-map">
   <article class="container">
-    <h2 class="title road-map-title">
+    <h2 class="title road-map-title visible-off">
       Этапы внедрения голосового бота
     </h2>
-    <p class="road-map-description">
+    <p class="road-map-description visible-off">
       Голосовые роботы обладают сложной логикой и искусственным интеллектом,
       поэтому все заботы по созданию голосового робота мы берем на себя
     </p>
 
-    <section class="road-map-items-block">
+    <section class="road-map-items-block visible-off">
       <article class="road-map-image">
         <img src="images/voice.webp" alt="Voice" loading="lazy">
       </article>
@@ -387,14 +393,14 @@
         <img src="images/voice.webp" alt="Voice" loading="lazy">
       </article>
       <article class="road-map-items">
-        <section class="road-map-item item-1">
+        <section class="road-map-item item-1  visible-off">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">1</p>
           <p class="road-map-item-title">Оставьте заявку</p>
           <p class="road-map-item-text">Наш специалист свяжется с вами
             для подтверждения и уточнения деталей</p>
         </section>
-        <section class="road-map-item  item-2">
+        <section class="road-map-item  item-2  visible-off">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">2</p>
           <p class="road-map-item-title">Погружение <br>
@@ -402,14 +408,14 @@
           <p class="road-map-item-text">После подписания договора, мы анализируем ваши бизнес-процессы и настраиваем
             робота под ваши задачи</p>
         </section>
-        <section class="road-map-item  item-3">
+        <section class="road-map-item  item-3  visible-off">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">3</p>
           <p class="road-map-item-title">Внедрение</p>
           <p class="road-map-item-text">Подключаем бота к вашей телефонии, настраиваем выгрузку отчетов, подключаем к
             реальным разговорам</p>
         </section>
-        <section class="road-map-item  item-4">
+        <section class="road-map-item  item-4  visible-off">
           <article class="road-map-item-angle-bg"></article>
           <p class="road-map-item-number">4</p>
           <p class="road-map-item-title">Контроль</p>
@@ -423,14 +429,14 @@
 
 <section class="bot-coast">
   <article class="container">
-    <h2 class="title bot-coast-title">
+    <h2 class="title bot-coast-title visible-off">
       Чем больше общается ваш бот, <br>
       тем больше средств вы экономите
     </h2>
-    <p class="subtitle bot-coast-subtitle">Мы используем посекундную тарификацию и вы платите, только за фактические
+    <p class="subtitle bot-coast-subtitle visible-off">Мы используем посекундную тарификацию и вы платите, только за фактические
       разговоры</p>
 
-    <section class="coast-items">
+    <section class="coast-items visible-off">
       <article class="coast-item siren">
         <div class="right-line"></div>
         <div class="coast-item-amount">бесплатно</div>
@@ -475,7 +481,7 @@
     <section class="questions-items">
       <app-accordion-asks class="accordion-asks"></app-accordion-asks>
       <article class="questions-image zoom-in">
-        <img ngSrc="images/bot_phone.webp" fill alt="">
+        <img src="images/bot_phone.webp" loading="lazy" alt="">
       </article>
     </section>
   </article>
@@ -560,17 +566,20 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="tel-input-block">
+            <div class="tel-input-block" #telContainer3>
               <ngx-intl-tel-input
-                #phoneInput
+                #phoneInput3
                 [cssClass]="'btn action-input'"
-                [enableAutoCountrySelect]="true"
+                [enableAutoCountrySelect]="false"
                 [enablePlaceholder]="true"
-                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-                [selectFirstCountry]="true"
+                [searchCountryPlaceholder]="'Поиск страны'"
+                [searchCountryFlag]="true"
+                [searchCountryField]="[SearchCountryField.All]"
+                [selectFirstCountry]="false"
                 [separateDialCode]="true"
                 [selectedCountryISO]="selectedCountryISO"
                 [numberFormat]="PhoneNumberFormat.International"
+                (input)="onSearchInput($event)"
                 (countryChange)="onCountryChange($event)"
               ></ngx-intl-tel-input>
               <input
@@ -650,12 +659,6 @@
               </svg>
               <span>WhatsApp привязан</span>
             </label>
-          </div>
-          <div class="form-group">
-            <input class="text-input" id="companyRole" formControlName="companyRole" placeholder="Роль в компании"/>
-            <div *ngIf="finalForm.get('companyRole')?.touched && finalForm.get('companyRole')?.invalid" class="error">
-              Роль обязательна
-            </div>
           </div>
         </form>
       </div>

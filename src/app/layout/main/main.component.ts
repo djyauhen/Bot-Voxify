@@ -136,7 +136,6 @@ export class MainComponent {
       phone: ['', Validators.required],
       telegram: [false],
       whatsApp: [false],
-      companyRole: ['', Validators.required]
     });
     this.botForm = this.fb.group({
       phone: ['', Validators.required],
@@ -172,6 +171,46 @@ export class MainComponent {
     });
   }
 
+  onSearchInput(event: Event) {
+    setTimeout(() => {
+      const searchInput = event.target as HTMLInputElement;
+      const searchText = searchInput.value.toLowerCase().trim();
+      // Получаем .iti__country-list через родителя .iti
+      const dropdown = searchInput.closest('.iti')?.querySelector('.iti__country-list');
+
+      if (dropdown && searchText) {
+        const countries = dropdown.querySelectorAll('.iti__country') as NodeListOf<HTMLElement> & Iterable<HTMLElement>;
+        let matchedCountry = null;
+
+        // Ищем первый элемент, соответствующий запросу
+        for (const country of countries) {
+          const countryName = country.querySelector('.iti__country-name')?.textContent?.toLowerCase();
+          const dialCode = country.querySelector('.iti__dial-code')?.textContent?.toLowerCase();
+          const isoCode = country.getAttribute('data-country-code')?.toLowerCase();
+
+          if (
+            (countryName && countryName.includes(searchText)) ||
+            (dialCode && dialCode.includes(searchText)) ||
+            (isoCode && isoCode.includes(searchText))
+          ) {
+            matchedCountry = country;
+            break; // Первый совпадающий элемент
+          }
+        }
+
+        if (matchedCountry) {
+          const offsetTop = matchedCountry.offsetTop;
+
+          // Пробуем scrollTo
+          dropdown.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 500); // Задержка для завершения фильтрации
+  }
+
   onCountryChange(event: any) {this.selectedCountryISO = event.iso2;
     setTimeout(() => this.updateMask(), 500);
   }
@@ -192,66 +231,17 @@ export class MainComponent {
     // Устанавливаем первый слайд и активную кнопку при инициализации
     this.owlCarCard.to('slide-0');
 
-
-    // Устанавливаем появление текста под advantages
-    const advantageTextItems = document.querySelectorAll('.advantage-text');
-    this.startAnimationUp(advantageTextItems, 'visible');
-    // Конец появление текста под advantages
-
-    // Устанавливаем появление текста под task-item
-    const taskItems = document.querySelectorAll('.task-item');
-    this.startAnimationUp(taskItems, 'visible');
-    // Конец появление текста под task-item
-
-    // Устанавливаем появление текста под title-block
-    const titleBlock = document.querySelectorAll('.title-block');
-    this.startAnimationUp(titleBlock, 'visible');
-    // Конец появление текста под title-block
-
     // Устанавливаем появление Изображения
     const zoomImages = document.querySelectorAll('.zoom-in');
     this.startAnimationUp(zoomImages, 'zoom-in-active');
     // Конец появление Изображения
 
-    // Устанавливаем появление текста под title-block
-    const botHelpTextBlock = document.querySelectorAll('.bot-help-text-block');
-    this.startAnimationUp(botHelpTextBlock, 'visible');
-    // Конец появление текста под title-block
 
-    // Устанавливаем появление текста под title-block
-    const roadMapTitleBlock = document.querySelectorAll('.road-map-title');
-    this.startAnimationUp(roadMapTitleBlock, 'visible');
-    // Конец появление текста под title-block
+    // Устанавливаем появление текста под advantages
+    const visibleOffItems = document.querySelectorAll('.visible-off');
+    this.startAnimationUp(visibleOffItems, 'visible');
+    // Конец появление текста под advantages
 
-    // Устанавливаем появление текста под title-block
-    const roadMapDescriptionBlock = document.querySelectorAll('.road-map-description');
-    this.startAnimationUp(roadMapDescriptionBlock, 'visible');
-    // Конец появление текста под title-block
-
-    // Устанавливаем появление текста под road-map-items
-    const roadMapItemsBlock = document.querySelectorAll('.road-map-items-block');
-    this.startAnimationUp(roadMapItemsBlock, 'visible');
-    // Конец появление текста под road-map-item
-    // Устанавливаем появление текста под road-map-item
-    const roadMapItems = document.querySelectorAll('.road-map-item');
-    this.startAnimationUp(roadMapItems, 'visible');
-    // Конец появление текста под road-map-item
-    // Устанавливаем появление текста под road-map-item
-    const botCoastTitle = document.querySelectorAll('.bot-coast-title');
-    this.startAnimationUp(botCoastTitle, 'visible');
-    // Конец появление текста под road-map-item
-    // Устанавливаем появление текста под road-map-item
-    const botCoastSubtitle = document.querySelectorAll('.bot-coast-subtitle');
-    this.startAnimationUp(botCoastSubtitle, 'visible');
-    // Конец появление текста под road-map-item
-    // Устанавливаем появление текста под road-map-item
-    const coastItems = document.querySelectorAll('.coast-items');
-    this.startAnimationUp(coastItems, 'visible');
-    // Конец появление текста под road-map-item
-    // Устанавливаем появление текста под road-map-item
-    const differentItems = document.querySelectorAll('.different-item');
-    this.startAnimationUp(differentItems, 'visible');
-    // Конец появление текста под road-map-item
   }
 
   selectCategory(index: number) {
@@ -293,6 +283,7 @@ export class MainComponent {
 
   onSubmit() {
     if (this.quizForm.valid && this.finalForm.valid) {
+      this.finalForm.patchValue({phone: `${this.prefix}${this.finalForm.value.phone}`});
       const result = {
         answers: this.quizForm.value,
         finalForm: this.finalForm.value
@@ -337,6 +328,7 @@ export class MainComponent {
   }
 
   sendBotForm() {
+    this.botForm.patchValue({phone: `${this.prefix}${this.botForm.value.phone}`});
     this.questionService.botRequest(this.botForm.value)
       .subscribe(
         (response) => {
