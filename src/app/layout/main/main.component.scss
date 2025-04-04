@@ -2573,7 +2573,7 @@ dialog#dialog-popup {
 
       .btn {
         width: 100%;
-        font-size: calc(10 * $container-width);
+        font-size: calc(12 * $container-width);
         height: calc(34 * $container-width);
 
         .btn-inside {
@@ -2717,14 +2717,14 @@ dialog#dialog-popup {
       display: grid;
       grid-template-columns: 1fr 1fr;
       max-height: calc(320 * $container-width);
-      max-width: calc(250 * $container-width);
-      gap: calc(15 * $container-width) calc(30 * $container-width);
+      max-width: calc(300 * $container-width);
+      gap: calc(15 * $container-width) calc(20 * $container-width);
       align-items: flex-start;
       justify-items: center;
       margin: 0 auto;
 
       .advantage-item {
-        width: calc(110 * $container-width);
+        width: calc(120 * $container-width);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2774,7 +2774,7 @@ dialog#dialog-popup {
           }
 
           .task-item-text {
-            font-size: calc(8.5 * $container-width);
+            font-size: calc(8 * $container-width);
             line-height: 1;
           }
         }
@@ -2815,7 +2815,7 @@ dialog#dialog-popup {
         .different-text-block {
           border-radius: calc(15 * $container-width) 0 0 calc(15 * $container-width);
           height: calc(66 * $container-width);
-          font-size: calc(8.5 * $container-width);
+          font-size: calc(8 * $container-width);
           gap: calc(10 * $container-width);
 
           .different-left {
@@ -2879,7 +2879,7 @@ dialog#dialog-popup {
         margin-bottom: calc(25 * $container-width);
 
         .test-order-subtitle {
-          font-size: calc(7 * $container-width);
+          font-size: calc(8 * $container-width);
           text-align: center;
         }
       }
@@ -2889,12 +2889,12 @@ dialog#dialog-popup {
 
         .action-items .action-item {
           .action-item-text {
-            font-size: calc(6 * $container-width);
+            font-size: calc(8 * $container-width);
           }
 
           .btn, .btn::placeholder {
             border-radius: calc(30 * $container-width);
-            font-size: calc(10 * $container-width);
+            font-size: calc(12 * $container-width);
           }
         }
       }
@@ -3041,7 +3041,7 @@ dialog#dialog-popup {
 
 
           ul {
-            font-size: calc(10 * $container-width);
+            font-size: calc(8 * $container-width);
             padding-inline-start: calc(5 * $container-width);
             margin-bottom: calc(5 * $container-width);
 
@@ -3051,11 +3051,11 @@ dialog#dialog-popup {
           }
 
           .bot-help-text-description {
-            font-size: calc(8 * $container-width);
+            font-size: calc(7 * $container-width);
           }
 
           .bot-help-text-title {
-            font-size: calc(13 * $container-width);
+            font-size: calc(10 * $container-width);
             margin-bottom: calc(5 * $container-width);
           }
         }
@@ -3110,13 +3110,13 @@ dialog#dialog-popup {
             padding: calc(10 * $container-width);
 
             .road-map-item-title {
-              font-size: calc(14 * $container-width);
-              line-height: 1.1;
+              font-size: calc(13 * $container-width);
+              line-height: 1.2;
               margin-bottom: calc(3 * $container-width);
             }
 
             .road-map-item-text {
-              font-size: calc(10 * $container-width);
+              font-size: calc(9 * $container-width);
             }
 
             .road-map-item-angle-bg {
